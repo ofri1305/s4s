@@ -19,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.try2.utils.Utils;
+
 import java.util.ArrayList;
 
 
@@ -84,35 +86,13 @@ public class  SecondFragment extends Fragment {
         myList = v.findViewById(R.id.list);
         theFilter = v.findViewById(R.id.editTextTextPersonName);
        //set adapter
-        ArrayList <String> degrees= new ArrayList<>();
+        ArrayList <String> degrees= Utils.globalUser.getCourseNames();
 
 
 //        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);
 //        myList.setAdapter(adapter);
         //add to list
-        degrees.add("COMPUTER SCIENCE");
-        degrees.add("PSYCHOLOGY");
-        degrees.add("MEDICINE");
-        degrees.add("MATHEMATICS");
-        degrees.add("POLITICS");
-        degrees.add("FINANCE");
-        degrees.add("BUSINESS ADMINISTRATION");
-        degrees.add("ELECTRICAL ENGINEERING");
-        degrees.add("MARKETING");
-        degrees.add("POLITICS");
-        degrees.add("LITERATURE");
-        degrees.add("LAW");
-        degrees.add("HISTORY");
-        degrees.add("DESIGN");
-        degrees.add("ART");
-        degrees.add("HEBREW");
-        degrees.add("CRIMINOLOGY");
-        degrees.add("ARCHEOLOGY");
-        degrees.add("BIOLOGY");
-        degrees.add("MECHANICAL ENGINEERING");
-        degrees.add("PHYSICS");
-        degrees.add("CHEMISTRY");
-        degrees.add("COMMUNICATION");
+
 
         adapter=new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item,degrees){
 

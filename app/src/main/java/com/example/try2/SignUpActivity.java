@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.try2.objects.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,10 +90,10 @@ public class SignUpActivity extends AppCompatActivity {
                                 //Toast.makeText(SignUpActivity.this, "User created", Toast.LENGTH_SHORT).show();
                                 userID = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("users").document(userID);
-                                Map<String,Object> user = new HashMap<>();
-                                user.put("fullName",fullName);
-                                user.put("lastName",lastName1);
-                                user.put("email",email);
+                            ArrayList<String>course=new ArrayList<>();
+                            course.add("test");
+                                User user = new User(fullName,lastName1,email,course);
+
                                 //creating a profile with the new user's details
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override

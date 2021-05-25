@@ -118,7 +118,7 @@ public class FirstFragment extends Fragment {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                fName.setText(value.getString("fullName"));
+                fName.setText(value.getString("firstName"));
                 lName.setText(value.getString("lastName"));
                 eMail.setText(value.getString("email"));
             }
