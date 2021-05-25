@@ -18,10 +18,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".TextActivity" />
-        <activity android:name=".Main2Activity" />
-        <activity
-            android:name=".HomePage"
-            android:label="@string/title_activity_home_page" />
+        <activity android:name=".mainPageFragments.Main2Activity" />
         <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>

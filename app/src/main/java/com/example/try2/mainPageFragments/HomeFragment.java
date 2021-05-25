@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.mainPageFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.try2.R;
+import com.example.try2.TabbedActivity;
 import com.example.try2.utils.Utils;
 
 import java.util.ArrayList;
@@ -26,10 +26,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SecondFragment#newInstance} factory method to
+ * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class  SecondFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,7 +40,7 @@ public class  SecondFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public SecondFragment() {
+    public HomeFragment() {
         // Required empty public constructor
     }
 
@@ -53,8 +53,8 @@ public class  SecondFragment extends Fragment {
      * @return A new instance of fragment SecondFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static SecondFragment newInstance(String param1, String param2) {
-        SecondFragment fragment = new SecondFragment();
+    public static HomeFragment newInstance(String param1, String param2) {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -118,7 +118,7 @@ public class  SecondFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ( SecondFragment.this).adapter.getFilter().filter(s);
+                ( HomeFragment.this).adapter.getFilter().filter(s);
             }
 
             @Override
@@ -131,7 +131,7 @@ public class  SecondFragment extends Fragment {
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),TabbedActivity.class);
+                Intent intent = new Intent(getContext(), TabbedActivity.class);
                 intent.putExtra("CourseName", myList.getItemAtPosition(position).toString());
                 startActivity(intent);
             }

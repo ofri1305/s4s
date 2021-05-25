@@ -5,7 +5,7 @@
     android:id="@+id/first"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
+    tools:context=".mainPageFragments.ProfileFragment">
 
     <Button
         android:id="@+id/logoutButton"
