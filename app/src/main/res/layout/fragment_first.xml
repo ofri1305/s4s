@@ -8,7 +8,7 @@
     tools:context=".FirstFragment">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/logoutButton"
         android:layout_width="400dp"
         android:layout_height="46dp"
         android:onClick="logout"
@@ -112,7 +112,7 @@
         android:layout_width="400dp"
         android:layout_height="46dp"
         android:text="reset password"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"

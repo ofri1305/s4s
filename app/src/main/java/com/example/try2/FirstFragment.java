@@ -100,7 +100,7 @@ public class FirstFragment extends Fragment {
             //buttons
             resetPsw = v.findViewById(R.id.button3);
             changeProfile = v.findViewById(R.id.changeProfile);
-            logOutButton = v.findViewById(R.id.loginButton);
+            logOutButton = v.findViewById(R.id.logoutButton);
 
             //image
             profileImage = v.findViewById(R.id.profileImage);
