@@ -63,7 +63,6 @@ public class  SecondFragment extends Fragment {
     }
     ListView myList;
     EditText theFilter;
-    ArrayList<String> degrees;
     ArrayAdapter<String> adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,6 +95,7 @@ public class  SecondFragment extends Fragment {
 
         adapter=new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item,degrees){
 
+            //the design
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

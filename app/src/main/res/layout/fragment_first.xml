@@ -155,4 +155,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.769" />
 
+    <TextView
+        android:id="@+id/profileDegrees"
+        android:layout_width="265dp"
+        android:layout_height="59dp"
+        app:layout_constraintBottom_toTopOf="@+id/changeProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/m1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

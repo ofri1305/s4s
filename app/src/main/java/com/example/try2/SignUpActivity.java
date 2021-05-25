@@ -73,7 +73,8 @@ public class SignUpActivity extends AppCompatActivity {
         //firebase stuff
         fAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
-        //set the list
+
+        //set the list- WE NEED TO PUT THE LIST IN FIREBASE!!!!
         degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
                 "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
                 "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
