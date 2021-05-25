@@ -112,6 +112,7 @@ public class FirstFragment extends Fragment {
 
         userId = fAuth.getCurrentUser().getUid();
 
+
        //create a collection named "users" in firebase and put attributes
         DocumentReference documentReference = fStore.collection("users").document(userId);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
