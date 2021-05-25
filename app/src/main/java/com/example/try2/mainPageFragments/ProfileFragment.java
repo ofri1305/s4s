@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.mainPageFragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.try2.EditProfile;
+import com.example.try2.Login;
+import com.example.try2.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -25,16 +27,13 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
-import java.util.Objects;
-import java.util.concurrent.Executor;
-
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FirstFragment#newInstance} factory method to
+ * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FirstFragment extends Fragment {
+public class ProfileFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,7 +43,7 @@ public class FirstFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FirstFragment() {
+    public ProfileFragment() {
         // Required empty public constructor
     }
 
@@ -57,10 +56,10 @@ public class FirstFragment extends Fragment {
      * @return A new instance of fragment FirstFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FirstFragment newInstance(String param1, String param2) {
+    public static ProfileFragment newInstance(String param1, String param2) {
 
 
-        FirstFragment fragment = new FirstFragment();
+        ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -152,7 +151,7 @@ public class FirstFragment extends Fragment {
 
         //change profile onclick - go to editProfile activity
         changeProfile.setOnClickListener(v12 -> {
-            Intent i = new Intent(getContext(),EditProfile.class);
+            Intent i = new Intent(getContext(), EditProfile.class);
             i.putExtra("firstName", fName.getText().toString());
             i.putExtra("lastName", lName.getText().toString());
             i.putExtra("email", eMail.getText().toString());
@@ -164,7 +163,7 @@ public class FirstFragment extends Fragment {
     //logout when logout button is clicked
     public void logout(View v){
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getContext(),Login.class));
+        startActivity(new Intent(getContext(), Login.class));
 
     }
 }

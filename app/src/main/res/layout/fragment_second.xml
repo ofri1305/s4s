@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FDFDFD"
     android:backgroundTint="#FDFDFD"
-    tools:context=".SecondFragment">
+    tools:context=".mainPageFragments.HomeFragment">
 
 
     <ListView
