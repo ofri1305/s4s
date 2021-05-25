@@ -10,7 +10,7 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/lastName"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859" />
+        app:layout_constraintVertical_bias="0.915" />
 
     <EditText
         android:id="@+id/email"
@@ -44,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintVertical_bias="0.957" />
 
     <EditText
         android:id="@+id/password1"
@@ -57,12 +57,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.973" />
 
     <EditText
         android:id="@+id/password2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="210dp"
+        android:layout_height="47dp"
         android:ems="10"
         android:hint="enter password again"
         android:inputType="textPassword"
@@ -70,21 +70,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintVertical_bias="0.387" />
 
     <Button
         android:id="@+id/buttonSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
         android:background="@drawable/costum_button"
         android:text="sign up"
         android:textColor="#FFFDFD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password2"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -96,5 +95,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSignUp" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="403dp" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="472dp" />
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:layout_width="210dp"
+        android:layout_height="33dp"
+        tools:layout_editor_absoluteX="101dp"
+        tools:layout_editor_absoluteY="543dp" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="204dp"
+        android:layout_height="29dp"
+        android:text="chooese your degree (max 3)"
+        tools:layout_editor_absoluteX="103dp"
+        tools:layout_editor_absoluteY="322dp" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="205dp"
+        android:layout_height="36dp"
+        android:text="AutoCompleteTextView"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="367dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
