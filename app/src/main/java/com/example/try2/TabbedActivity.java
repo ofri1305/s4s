@@ -42,6 +42,7 @@ public class TabbedActivity extends AppCompatActivity {
     String selectedSemester = "1";
     String course;
     FirebaseFirestore fStore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
