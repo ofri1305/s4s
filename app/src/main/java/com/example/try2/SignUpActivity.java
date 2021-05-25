@@ -157,7 +157,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 //Toast.makeText(SignUpActivity.this, "User created", Toast.LENGTH_SHORT).show();
                                 userID = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("users").document(userID);
-                                //course.add("test");
                                 User user = new User(fullName,lastName1,email,chosenDegrees);
 
                                 //creating a profile with the new user's details

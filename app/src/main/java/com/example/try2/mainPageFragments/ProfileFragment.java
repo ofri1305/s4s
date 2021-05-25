@@ -74,6 +74,7 @@ public class ProfileFragment extends Fragment {
     ImageView profileImage;
     StorageReference storageReference;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -93,7 +94,7 @@ public class ProfileFragment extends Fragment {
             fName = v.findViewById(R.id.n1);
             lName = v.findViewById(R.id.n2);
             eMail = v.findViewById(R.id.m1);
-            //degree1 = v.findViewById(R.id.degrees);
+            degree1 = v.findViewById(R.id.profileDegrees);
 
             //buttons
             resetPsw = v.findViewById(R.id.button3);
@@ -121,8 +122,12 @@ public class ProfileFragment extends Fragment {
                 lName.setText(value.getString("lastName"));
                 eMail.setText(value.getString("email"));
                 //degree1.setText(value.getString("courseNames"));
+
+
             }
         });
+
+
 
         //import the profile image from firebase to app
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
