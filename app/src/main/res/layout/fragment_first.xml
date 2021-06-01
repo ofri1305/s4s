@@ -5,6 +5,7 @@
     android:id="@+id/first"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="rtl"
     tools:context=".mainPageFragments.ProfileFragment">
 
     <Button
@@ -157,8 +158,8 @@
 
     <TextView
         android:id="@+id/profileDegrees"
-        android:layout_width="265dp"
-        android:layout_height="59dp"
+        android:layout_width="269dp"
+        android:layout_height="80dp"
         app:layout_constraintBottom_toTopOf="@+id/changeProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

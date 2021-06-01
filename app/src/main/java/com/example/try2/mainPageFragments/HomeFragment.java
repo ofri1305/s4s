@@ -85,6 +85,7 @@ public class HomeFragment extends Fragment {
         myList = v.findViewById(R.id.list);
         theFilter = v.findViewById(R.id.editTextTextPersonName);
        //set adapter
+
         ArrayList <String> degrees= Utils.globalUser.getCourseNames();
 
 

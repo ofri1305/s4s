@@ -46,7 +46,8 @@ public class TabbedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabbed);
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        course = getIntent().getStringExtra("CourseName");
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),course);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
@@ -109,7 +110,7 @@ public class TabbedActivity extends AppCompatActivity {
 
 
     //getting the name of the course and according to the name, the activity sends the specific request to firebase
-     course = getIntent().getStringExtra("CourseName");
+
      if(course != null){
          fStore.collection("Test").document("chats").collection("user").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
              @Override
