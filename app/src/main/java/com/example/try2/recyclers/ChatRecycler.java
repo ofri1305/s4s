@@ -52,7 +52,9 @@ public class ChatRecycler extends RecyclerView.Adapter<ChatRecycler.ViewHolder> 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nameOfSender=itemView.findViewById(R.id.textView14);
+            nameOfSender=itemView.findViewById(R.id.senderTextView);
+            text = itemView.findViewById(R.id.messageTextView);
+            date = itemView.findViewById(R.id.dateTextView);
 
 
         }

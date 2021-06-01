@@ -27,6 +27,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -118,10 +120,21 @@ public class ProfileFragment extends Fragment {
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                ArrayList<String>myDegrees=new ArrayList<>();
+                try {
+                    myDegrees= (ArrayList<String>) value.get("courseNames");
+                }catch (Exception c){
+
+                }
+
+                String names="";
+                for (String name:myDegrees) {
+                    names+=name+"\n";
+                }
                 fName.setText(value.getString("firstName"));
                 lName.setText(value.getString("lastName"));
                 eMail.setText(value.getString("email"));
-                //degree1.setText(value.getString("courseNames"));
+                degree1.setText(names);
 
 
             }
