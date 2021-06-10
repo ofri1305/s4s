@@ -4,14 +4,24 @@ public class Material {
     private String urlToFile;
     private String description;
     private String nameOfFile;
+    private String typeOfFile;
 
     public Material() {
     }
 
-    public Material(String urlToFile, String description,String nameOfFile) {
+    public Material(String urlToFile, String description,String nameOfFile,String typeOfFile) {
         this.urlToFile = urlToFile;
         this.description = description;
         this.nameOfFile=nameOfFile;
+        this.typeOfFile=typeOfFile;
+    }
+
+    public String getTypeOfFile() {
+        return typeOfFile;
+    }
+
+    public void setTypeOfFile(String typeOfFile) {
+        this.typeOfFile = typeOfFile;
     }
 
     public String getNameOfFile() {

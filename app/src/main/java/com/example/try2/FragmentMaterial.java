@@ -1,6 +1,7 @@
 package com.example.try2;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -89,22 +90,24 @@ public class FragmentMaterial extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==15){
             if(resultCode== Activity.RESULT_OK){
+
                 Uri imageUri = data.getData();
-                uploadImageToFirebase(imageUri);
+                ContentResolver cr = this.getActivity().getContentResolver();
+                String mime = cr.getType(imageUri);
+                uploadImageToFirebase(imageUri,mime);
             }
         }
     }
-    private void uploadImageToFirebase(Uri imageUri) {
+    private void uploadImageToFirebase(Uri imageUri,String typeOfFile) {
 
         Long date=new Date().getTime();
         StorageReference fileRef = storageReference.child(nameOfCourse+"/material/"+date);
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
-                Material material=new Material(uri.toString(),"ttt",date.toString());
+                Material material=new Material(uri.toString(),"ttt",date.toString(),typeOfFile);
                 fStore.collection(nameOfCourse).document("material").collection("materialsObjects").document(date.toString()).set(material);
                 materials.add(material);
                 setRecyclerView();
-              Toast.makeText(getContext(), "ffffff", Toast.LENGTH_LONG).show();
             });
         }).addOnFailureListener((e) -> {
 

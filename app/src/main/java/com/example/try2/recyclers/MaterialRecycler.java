@@ -58,13 +58,25 @@ public class MaterialRecycler  extends RecyclerView.Adapter<MaterialRecycler.Vie
                     DownloadManager downloadmanager = (DownloadManager)context.
                             getSystemService(Context.DOWNLOAD_SERVICE);
                     Uri uri = Uri.parse(materials.get(position).getUrlToFile());
-                    DownloadManager.Request request = new DownloadManager.Request(uri);
 
+                    DownloadManager.Request request = new DownloadManager.Request(uri);
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir( Environment.DIRECTORY_DOWNLOADS, ""+materials.get(position).getNameOfFile());
+                    String typeOfFile="";
+                    switch (materials.get(position).getTypeOfFile()){
+                        case "text/plain":
+                            typeOfFile="txt";
+                            break;
+                        case "image/jpeg":
+                            typeOfFile="jpeg";
+                            break;
+                    }
+                    request.setDestinationInExternalPublicDir( Environment.DIRECTORY_DOWNLOADS, ""+materials.get(position).getNameOfFile()+"."+typeOfFile);
+                    request.setMimeType(materials.get(position).getTypeOfFile());
 
                     downloadmanager.enqueue(request);
+
                     Toast.makeText(context,"ההורדה מתבצעת, בסיום ההורדה הקובץ יהיה בתקייה הורדות.",Toast.LENGTH_LONG).show();
+
                 }else
                     ActivityCompat.requestPermissions((Activity)context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
 
