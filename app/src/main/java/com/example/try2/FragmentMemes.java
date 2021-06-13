@@ -46,6 +46,7 @@ public class FragmentMemes extends Fragment {
     //TextView whoPosted;
     FirebaseAuth fAuth;
     private ArrayList<Meme> memes;
+    Long date = new Date().getTime();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,6 +71,11 @@ public class FragmentMemes extends Fragment {
             public void onClick(View v) {
                 uploadMeme();
             }
+
+        });
+        StorageReference profileRef = storageReference.child(nameOfCourse+"/meme/"+date);
+        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
+            Picasso.get().load(uri).into(memePhoto);
         });
     }
 
@@ -97,11 +103,11 @@ public class FragmentMemes extends Fragment {
         }
     }
     private void uploadImageToFirebase(Uri imageUri) {
-        Long date = new Date().getTime();
+        //Long date = new Date().getTime();
         StorageReference fileRef = storageReference.child(nameOfCourse+"/meme/"+date);
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
-                Meme meme = new Meme(uri.toString(),fAuth.getCurrentUser().toString());
+                Meme meme = new Meme(uri.toString(),"fAuth.getCurrentUser().toString()");
                 Picasso.get().load((Uri) uri).into(memePhoto);
                 fStore.collection(nameOfCourse).document("meme").collection("memesObjects").document(date.toString()).set(meme);
                 memes.add(meme);
