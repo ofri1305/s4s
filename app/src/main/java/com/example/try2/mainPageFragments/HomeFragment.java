@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.try2.R;
-import com.example.try2.TabbedActivity;
+import com.example.try2.degreePageFragments.TabbedActivity;
 import com.example.try2.utils.Utils;
 
 import java.util.ArrayList;

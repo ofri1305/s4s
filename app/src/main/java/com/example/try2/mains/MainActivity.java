@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.mains;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
+import com.example.try2.register.Login;
+import com.example.try2.R;
 import com.example.try2.objects.User;
 import com.example.try2.utils.Utils;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,8 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private static int SPLASH_TIMEOUT = 1000;

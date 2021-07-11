@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.degreePageFragments;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.try2.R;
 import com.example.try2.objects.Chat;
 import com.example.try2.objects.Material;
 import com.example.try2.recyclers.ChatRecycler;

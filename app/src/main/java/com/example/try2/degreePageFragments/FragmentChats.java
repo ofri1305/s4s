@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.degreePageFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.try2.R;
 
 import javax.annotation.Nullable;
 

@@ -1,7 +1,8 @@
-package com.example.try2;
+package com.example.try2.degreePageFragments;
 
 import android.os.Bundle;
 
+import com.example.try2.R;
 import com.example.try2.objects.Chat;
 import com.example.try2.objects.User;
 

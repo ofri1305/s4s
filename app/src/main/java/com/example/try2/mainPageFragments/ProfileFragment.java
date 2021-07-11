@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.try2.EditProfile;
-import com.example.try2.Login;
+import com.example.try2.register.Login;
 import com.example.try2.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;

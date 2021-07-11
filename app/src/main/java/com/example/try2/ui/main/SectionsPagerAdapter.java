@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.try2.FragmentChats;
-import com.example.try2.FragmentMaterial;
-import com.example.try2.FragmentMemes;
+import com.example.try2.degreePageFragments.FragmentChats;
+import com.example.try2.degreePageFragments.FragmentMaterial;
+import com.example.try2.degreePageFragments.FragmentMemes;
 import com.example.try2.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {

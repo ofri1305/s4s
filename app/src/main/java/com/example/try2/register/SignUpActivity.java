@@ -1,10 +1,8 @@
-package com.example.try2;
+package com.example.try2.register;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,20 +15,16 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.try2.R;
 import com.example.try2.objects.User;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
     EditText name, lastName, mEmail, password1, password2;
@@ -167,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     }
                                 });
 
-                                startActivity(new Intent(getApplicationContext(),Login.class));
+                                startActivity(new Intent(getApplicationContext(), Login.class));
 //                            }else{
 //                                Toast.makeText(SignUpActivity.this, "please verify your email", Toast.LENGTH_LONG).show();
 //                            }

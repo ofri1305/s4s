@@ -75,7 +75,7 @@ public class MaterialRecycler  extends RecyclerView.Adapter<MaterialRecycler.Vie
 
                     downloadmanager.enqueue(request);
 
-                    Toast.makeText(context,"ההורדה מתבצעת, בסיום ההורדה הקובץ יהיה בתקייה הורדות.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context,"downloading file...",Toast.LENGTH_LONG).show();
 
                 }else
                     ActivityCompat.requestPermissions((Activity)context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);

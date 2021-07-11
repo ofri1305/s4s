@@ -14,14 +14,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EditProfile" />
         <activity
-            android:name=".TabbedActivity"
+            android:name=".degreePageFragments.TabbedActivity"
             android:label="@string/title_activity_tabbed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".register.SignUpActivity" />
         <activity android:name=".TextActivity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".Login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".mains.Main2Activity" />
+        <activity android:name=".register.Login" />
+        <activity android:name=".mains.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,5 @@
-package com.example.try2;
+package com.example.try2.register;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,11 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import com.example.try2.R;
+import com.example.try2.mains.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
@@ -90,7 +86,7 @@ public class Login extends AppCompatActivity {
                     if(fAuth.getCurrentUser().isEmailVerified()){
                         Toast.makeText(Login.this, "logged in successfully", Toast.LENGTH_SHORT).show();
                         
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }else{
                         Toast.makeText(Login.this, "verify your email!", Toast.LENGTH_SHORT).show();
 

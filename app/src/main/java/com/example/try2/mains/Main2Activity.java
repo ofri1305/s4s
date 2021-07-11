@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.mains;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
 
+import com.example.try2.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Main2Activity extends AppCompatActivity {
