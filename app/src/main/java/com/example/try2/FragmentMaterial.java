@@ -51,10 +51,10 @@ public class FragmentMaterial extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-         storage = FirebaseStorage.getInstance();
+        storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         fStore= FirebaseFirestore.getInstance();
-         nameOfCourse=getArguments().getString("nameOfCourse");
+        nameOfCourse=getArguments().getString("nameOfCourse");
         Button button=getView().findViewById(R.id.upload_file);
         loadAllMaterials();
         button.setOnClickListener(new View.OnClickListener() {

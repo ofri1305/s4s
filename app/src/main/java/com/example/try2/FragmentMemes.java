@@ -57,6 +57,7 @@ public class FragmentMemes extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //memes = getView().findViewById(R.id.memes_recycler);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         fStore= FirebaseFirestore.getInstance();
