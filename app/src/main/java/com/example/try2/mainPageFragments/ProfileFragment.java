@@ -136,7 +136,7 @@ public class ProfileFragment extends Fragment {
                 lName.setText(value.getString("lastName"));
                 eMail.setText(value.getString("email"));
                 degree1.setText(names);
-                String titleNameString = fName.getText().toString().concat(lName.getText().toString());
+                String titleNameString = fName.getText().toString().concat(" ").concat(lName.getText().toString()).toUpperCase();
                 titleName.setText(titleNameString);
 
             }

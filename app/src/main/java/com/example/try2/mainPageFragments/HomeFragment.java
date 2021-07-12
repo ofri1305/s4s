@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view= super.getView(position, convertView, parent);
-                view.setBackground(getResources().getDrawable(R.drawable.purple));
+                view.setBackground(getResources().getDrawable(R.drawable.costum_row));
                 return view;
             }
         };
