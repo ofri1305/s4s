@@ -46,10 +46,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/n2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
+        app:layout_constraintVertical_bias="0.948" />
 
     <TextView
         android:id="@+id/m1"
@@ -150,16 +150,16 @@
 
     <TextView
         android:id="@+id/profileDegrees"
-        android:layout_width="248dp"
+        android:layout_width="255dp"
         android:layout_height="87dp"
         android:background="@drawable/button_for_profile"
         android:textColor="#3C3F41"
         app:layout_constraintBottom_toTopOf="@+id/changeProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.891"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="0.973" />
 
     <TextView
         android:id="@+id/textView7"
