@@ -13,17 +13,15 @@
         android:id="@+id/logoutButton"
         android:layout_width="96dp"
         android:layout_height="40dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="296dp"
         android:backgroundTint="#00FFFFFF"
         android:fontFamily="sans-serif-black"
         android:onClick="logout"
         android:text="log out"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/profileImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profileImage"
@@ -46,10 +44,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/n2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.948" />
+        app:layout_constraintVertical_bias="0.936" />
 
     <TextView
         android:id="@+id/m1"
@@ -60,10 +58,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/profileDegrees"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintVertical_bias="0.943" />
 
     <TextView
         android:id="@+id/n2"
@@ -76,10 +74,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/m1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.696" />
 
     <TextView
         android:id="@+id/textView11"
@@ -91,10 +89,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintVertical_bias="0.685" />
 
     <TextView
         android:id="@+id/textView12"
@@ -109,7 +107,7 @@
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.836" />
+        app:layout_constraintVertical_bias="0.797" />
 
     <TextView
         android:id="@+id/textView13"
@@ -124,14 +122,14 @@
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.866" />
+        app:layout_constraintVertical_bias="0.814" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="169dp"
         android:layout_height="44dp"
         android:layout_marginStart="208dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/costum_button"
         android:text="reset password"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,8 +139,8 @@
         android:id="@+id/changeProfile"
         android:layout_width="169dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginEnd="212dp"
+        android:layout_marginBottom="88dp"
         android:background="@drawable/costum_button"
         android:text="change profile"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,10 +154,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/changeProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintVertical_bias="0.982" />
 
     <TextView
         android:id="@+id/textView7"
@@ -174,7 +172,7 @@
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.806" />
+        app:layout_constraintVertical_bias="0.802" />
 
     <TextView
         android:id="@+id/titleName"
