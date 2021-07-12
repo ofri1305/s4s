@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.try2.register.Login;
 import com.example.try2.R;
@@ -18,9 +22,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIMEOUT = 1000;
+    private static int SPLASH_TIMEOUT = 2000;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
+    private ImageView logo;
+    private ImageView name;
+    Animation topAnim, bottomAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +35,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         firestore= FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        name= findViewById(R.id.s4sName);
+        logo= findViewById(R.id.imageLogo);
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+
+        name.setAnimation(topAnim);
+        logo.setAnimation(bottomAnim);
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+
+
                 if(currentUser!=null){
                     firestore.collection("users").document(currentUser.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                         @Override
@@ -55,3 +74,40 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
+
+
+/*
+public class MainActivity extends AppCompatActivity {
+    private static int SPLASH_TIMEOUT = 4000;
+    private ImageView logo;
+    private TextView name;
+    Animation topAnim, bottomAnim;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_main);
+
+        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
+
+        name = findViewById(R.id.welcomeView);
+        logo = findViewById(R.id.logoForSplash);
+        name.setAnimation(topAnim);
+        logo.setAnimation(bottomAnim);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        },SPLASH_TIMEOUT);
+
+
+    }
+}
+ */
