@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="378dp"
-        android:layout_height="204dp"
+        android:layout_height="34dp"
         android:background="@drawable/costum_row"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"

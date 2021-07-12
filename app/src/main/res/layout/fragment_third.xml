@@ -5,15 +5,15 @@
     android:id="@+id/third"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="#3C3F41"
     tools:context=".mainPageFragments.SettingsFragment">
 
     <Button
         android:id="@+id/buttonPriAndPol"
         android:layout_width="277dp"
         android:layout_height="60dp"
-        android:background="@drawable/costum_button"
-        android:backgroundTint="#1CC0D6"
+        android:background="@drawable/setting1"
+        android:backgroundTint="#E49D85"
         android:shadowColor="#FFFFFF"
         android:text="Privacy and Policy"
         android:textColor="#FFFFFF"
@@ -29,8 +29,8 @@
         android:id="@+id/buttonReport"
         android:layout_width="277dp"
         android:layout_height="60dp"
-        android:background="@drawable/costum_button"
-        android:backgroundTint="#1CC0D6"
+        android:background="@drawable/setting1"
+        android:backgroundTint="#a3c3b6"
         android:text="Report a problem"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -45,8 +45,8 @@
         android:id="@+id/buttonAboutUs"
         android:layout_width="277dp"
         android:layout_height="60dp"
-        android:background="@drawable/costum_button"
-        android:backgroundTint="#1CC0D6"
+        android:background="@drawable/setting1"
+        android:backgroundTint="#5adcdd"
         android:text="about us"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -55,14 +55,13 @@
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonReport"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintVertical_bias="0.124" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="277dp"
         android:layout_height="60dp"
-        android:background="@drawable/costum_button"
-        android:backgroundTint="#1CC0D6"
+        android:background="@drawable/setting1"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="NOTIFICATIONS"
