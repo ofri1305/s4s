@@ -11,12 +11,12 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="378dp"
-        android:layout_height="34dp"
+        android:layout_height="220dp"
         android:background="@drawable/costum_row"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Main title"
-        android:textColor="#121213"
+        android:textColor="#000000"
         android:textSize="24sp" />
 
 
