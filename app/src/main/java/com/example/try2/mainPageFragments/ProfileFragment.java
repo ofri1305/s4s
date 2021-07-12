@@ -69,7 +69,7 @@ public class ProfileFragment extends Fragment {
         return fragment;
     }
     Button logOutButton, resetPsw, changeProfile;
-    TextView fName, lName, eMail, degree1;
+    TextView fName, lName, eMail, degree1, titleName;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
@@ -97,6 +97,7 @@ public class ProfileFragment extends Fragment {
             lName = v.findViewById(R.id.n2);
             eMail = v.findViewById(R.id.m1);
             degree1 = v.findViewById(R.id.profileDegrees);
+            titleName = v.findViewById(R.id.titleName);
 
             //buttons
             resetPsw = v.findViewById(R.id.button3);
@@ -135,7 +136,8 @@ public class ProfileFragment extends Fragment {
                 lName.setText(value.getString("lastName"));
                 eMail.setText(value.getString("email"));
                 degree1.setText(names);
-
+                String titleNameString = fName.getText().toString().concat(lName.getText().toString());
+                titleName.setText(titleNameString);
 
             }
         });
