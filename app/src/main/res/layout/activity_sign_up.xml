@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3C3F41"
+    android:background="@drawable/clean_back2"
     tools:context=".register.SignUpActivity">
 
     <EditText
@@ -80,8 +80,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="76dp"
         android:background="@drawable/costum_button"
+        android:backgroundTint="#E8C5F6E7"
         android:text="sign up"
-        android:textColor="#FFFDFD"
+        android:textColor="#009688"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

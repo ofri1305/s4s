@@ -17,7 +17,7 @@
             android:name=".degreePageFragments.TabbedActivity"
             android:label="@string/title_activity_tabbed"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".register.SignUpActivity" />
+        <activity android:name=".register.SignUpActivity"/>
         <activity android:name=".TextActivity" />
         <activity android:name=".mains.Main2Activity" />
         <activity android:name=".register.Login" />

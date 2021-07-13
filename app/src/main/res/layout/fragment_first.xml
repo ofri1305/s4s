@@ -5,7 +5,7 @@
     android:id="@+id/first"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_for_profile"
+    android:background="@drawable/clean_back_profile_2"
     android:layoutDirection="rtl"
     tools:context=".mainPageFragments.ProfileFragment">
 
@@ -13,10 +13,10 @@
         android:id="@+id/logoutButton"
         android:layout_width="96dp"
         android:layout_height="40dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="296dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="12dp"
         android:backgroundTint="#00FFFFFF"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif"
         android:onClick="logout"
         android:text="log out"
         android:textColor="#000000"
@@ -33,35 +33,35 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
+        app:layout_constraintVertical_bias="0.831" />
 
     <TextView
         android:id="@+id/n1"
         android:layout_width="255dp"
         android:layout_height="32dp"
-        android:background="@drawable/button_for_profile"
-        android:textColor="#FFFFFF"
+        android:gravity="center|left"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/n2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintVertical_bias="0.913" />
 
     <TextView
         android:id="@+id/m1"
         android:layout_width="255dp"
         android:layout_height="32dp"
-        android:background="@drawable/button_for_profile"
-        android:textColor="#FFFFFF"
+        android:gravity="center|left"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/profileDegrees"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.943" />
+        app:layout_constraintVertical_bias="0.941" />
 
     <TextView
         android:id="@+id/n2"
@@ -69,60 +69,60 @@
         android:layout_height="32dp"
         android:layout_marginTop="388dp"
         android:layout_marginBottom="43dp"
-        android:background="@drawable/button_for_profile"
-        android:textColor="#FDFDFD"
+        android:gravity="center|left"
+        android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/m1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="127dp"
         android:layout_height="25dp"
-        android:fontFamily="sans-serif-black"
-        android:text="FIRST NAME"
-        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:text="First Name"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="120dp"
         android:layout_height="33dp"
-        android:fontFamily="sans-serif-black"
-        android:text="LAST NAME"
-        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:text="Last Name"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.041"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.729" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="99dp"
         android:layout_height="23dp"
-        android:fontFamily="sans-serif-black"
-        android:text="EMAIL"
-        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:text="Email"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.814" />
+        app:layout_constraintVertical_bias="0.813" />
 
     <Button
         android:id="@+id/button3"
@@ -150,34 +150,34 @@
         android:id="@+id/profileDegrees"
         android:layout_width="255dp"
         android:layout_height="80dp"
-        android:background="@drawable/button_for_profile"
-        android:textColor="#FFFFFF"
+        android:gravity="center|left"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/changeProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.982" />
+        app:layout_constraintVertical_bias="0.944" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="98dp"
         android:layout_height="28dp"
-        android:fontFamily="sans-serif-black"
-        android:text="DEGREES"
-        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif"
+        android:text="Degrees"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_bias="0.038"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleName"
-        app:layout_constraintVertical_bias="0.802" />
+        app:layout_constraintVertical_bias="0.781" />
 
     <TextView
         android:id="@+id/titleName"
-        android:layout_width="213dp"
-        android:layout_height="54dp"
+        android:layout_width="221dp"
+        android:layout_height="43dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:textColor="#000000"
@@ -186,6 +186,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintVertical_bias="0.781" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

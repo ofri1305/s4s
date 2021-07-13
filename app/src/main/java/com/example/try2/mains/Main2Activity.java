@@ -22,7 +22,10 @@ public class Main2Activity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.firstFragment, R.id.secondFragment, R.id.thirdFragment)
                 .build();
+
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
+        getSupportActionBar().hide();
     }
 }
