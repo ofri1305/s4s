@@ -1,5 +1,6 @@
 package com.example.try2.recyclers;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +16,16 @@ import java.util.ArrayList;
 
 public class ChatRecycler extends RecyclerView.Adapter<ChatRecycler.ViewHolder> {
     private ArrayList<Chat> chats = new ArrayList<>();
+    private String nameOfCourse;
+    private Context context;
 
 
 
-    public ChatRecycler( ArrayList<Chat> chats) {
+    public ChatRecycler(ArrayList<Chat> chats, String nameOfCourse, Context context) {
         this.chats = chats;
-
+        this.nameOfCourse = nameOfCourse;
+        this.context = context;
     }
-
-
-
 
     @NonNull
     @Override
@@ -35,7 +36,9 @@ public class ChatRecycler extends RecyclerView.Adapter<ChatRecycler.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-      /*  holder.nameOfSender.setText(chats.get(position).getSender());*/
+        holder.nameOfSender.setText(chats.get(position).getSender());
+        holder.text.setText(chats.get(position).getMessage());
+        holder.date.setText((chats.get(position).getDate()));
     }
 
     @Override
@@ -55,8 +58,6 @@ public class ChatRecycler extends RecyclerView.Adapter<ChatRecycler.ViewHolder> 
             nameOfSender=itemView.findViewById(R.id.senderTextView);
             text = itemView.findViewById(R.id.messageTextView);
             date = itemView.findViewById(R.id.dateTextView);
-
-
         }
     }
 

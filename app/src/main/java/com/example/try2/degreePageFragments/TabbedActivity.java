@@ -112,27 +112,27 @@ public class TabbedActivity extends AppCompatActivity {
 
     //getting the name of the course and according to the name, the activity sends the specific request to firebase
 
-     if(course != null){
-         fStore.collection("Test").document("chats").collection("user").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-             @Override
-             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                ArrayList<Chat> chats= (ArrayList<Chat>) queryDocumentSnapshots.toObjects(Chat.class);
-                 Log.i("chats",""+chats.size());
-                 setRecyclerView(chats);
-             }
-         });
-        }
-
-
-
-    }
-
-    private void setRecyclerView(ArrayList<Chat> chats) {
-        RecyclerView recyclerView = findViewById(R.id.chat_recycler);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-
-        ChatRecycler recycler= new ChatRecycler(chats);
-        recyclerView.setAdapter(recycler);
+//     if(course != null){
+//         fStore.collection("Test").document("chats").collection("user").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//             @Override
+//             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                ArrayList<Chat> chats= (ArrayList<Chat>) queryDocumentSnapshots.toObjects(Chat.class);
+//                 Log.i("chats",""+chats.size());
+//                 setRecyclerView(chats);
+//             }
+//         });
+//        }
+//
+//
+//
+//    }
+//
+//    private void setRecyclerView(ArrayList<Chat> chats) {
+//        RecyclerView recyclerView = findViewById(R.id.chat_recycler);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        ChatRecycler recycler= new ChatRecycler(chats);
+//        recyclerView.setAdapter(recycler);
+//    }
     }
 }

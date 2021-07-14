@@ -27,7 +27,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -68,6 +70,7 @@ public class FragmentMemes extends Fragment {
         nameOfCourse=getArguments().getString("nameOfCourse");
         Button postMeme=getView().findViewById(R.id.addMemeButton);
         loadAllMemes();
+        loadLiveMemes();
         postMeme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +84,21 @@ public class FragmentMemes extends Fragment {
 //        });
     }
 
+    //load live memes
+    private void loadLiveMemes(){
+        fStore.collection(nameOfCourse).
+                document("meme").
+                collection("memesObjects").
+                addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        memes = (ArrayList<Meme>) value.toObjects(Meme.class);
+                        setRecyclerView();
+                    }
+                });
+    }
+
+    //load all memes
     private void loadAllMemes() {
         fStore.collection(nameOfCourse).document("meme").collection("memesObjects").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -90,6 +108,8 @@ public class FragmentMemes extends Fragment {
             }
         });
     }
+
+    //upload meme to from gallery
     public void uploadMeme(){
         Intent openGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(openGallery, 1000);
@@ -104,6 +124,8 @@ public class FragmentMemes extends Fragment {
             }
         }
     }
+
+    //upload to firebase
     private void uploadImageToFirebase(Uri imageUri) {
         //Long date = new Date().getTime();
         StorageReference fileRef = storageReference.child(nameOfCourse+"/meme/"+date);
@@ -120,6 +142,8 @@ public class FragmentMemes extends Fragment {
         });
 
     }
+
+    //set recycler
     private void setRecyclerView() {
         RecyclerView recyclerView = getView().findViewById(R.id.memes_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
