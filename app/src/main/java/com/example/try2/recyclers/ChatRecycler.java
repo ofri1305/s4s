@@ -15,10 +15,9 @@ import com.example.try2.objects.Chat;
 import java.util.ArrayList;
 
 public class ChatRecycler extends RecyclerView.Adapter<ChatRecycler.ViewHolder> {
-    private ArrayList<Chat> chats = new ArrayList<>();
+    private ArrayList<Chat> chats;
     private String nameOfCourse;
     private Context context;
-
 
 
     public ChatRecycler(ArrayList<Chat> chats, String nameOfCourse, Context context) {

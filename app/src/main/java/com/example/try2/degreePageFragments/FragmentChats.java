@@ -61,7 +61,7 @@ public class FragmentChats extends Fragment {
         nameOfCourse = getArguments().getString("nameOfCourse");
         sendButton.setOnClickListener(v -> setComponents());
         loadAllChats();
-        setRecyclerView();
+        //setRecyclerView();
         liveChats();
     }
 

@@ -8,36 +8,35 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_recycler"
-        android:layout_width="408dp"
-        android:layout_height="650dp"
+        android:layout_width="342dp"
+        android:layout_height="627dp"
         app:layout_constraintBottom_toTopOf="@+id/textToSend"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.058" />
 
     <EditText
         android:id="@+id/textToSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Enter your message"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonSend"
-        android:layout_width="74dp"
-        android:layout_height="38dp"
-        android:background="@drawable/costum_button"
-        android:drawableBottom="@drawable/ic_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textToSend"
         app:layout_constraintTop_toBottomOf="@+id/chat_recycler" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
