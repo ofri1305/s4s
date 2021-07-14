@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3C3F41"
+    android:background="#FFFFFF"
     tools:context=".EditProfile">
 
     <ImageView
         android:id="@+id/profileImageChange"
         android:layout_width="118dp"
         android:layout_height="84dp"
+        android:backgroundTint="#000000"
         app:layout_constraintBottom_toTopOf="@+id/fName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
-    tools:context=".mains.MainActivity" >
+    android:background="@drawable/clean_back2"
+    tools:context=".mains.MainActivity">
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -20,14 +20,13 @@
 
     <ImageView
         android:id="@+id/s4sName"
-        android:layout_width="173dp"
-        android:layout_height="86dp"
+        android:layout_width="135dp"
+        android:layout_height="58dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323"
-        app:srcCompat="@drawable/s4s" />
+        app:layout_constraintVertical_bias="0.37"
+        app:srcCompat="@drawable/whites4s" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

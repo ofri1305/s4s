@@ -22,7 +22,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIMEOUT = 2000;
+    private static int SPLASH_TIMEOUT = 1000;
     private FirebaseAuth mAuth;
     private FirebaseFirestore firestore;
     private ImageView logo;
