@@ -28,6 +28,7 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
         this.memes = memes;
         this.nameOfCourse = nameOfCourse;
         this.context = context;
+
     }
 
     @NonNull
