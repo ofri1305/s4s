@@ -80,24 +80,9 @@ public class SignUpActivity extends AppCompatActivity {
         degree3.setAdapter(adapter);
 
         //set onClick for dropdown images
-        dropDown1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                degree1.showDropDown();
-            }
-        });
-        dropDown2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                degree2.showDropDown();
-            }
-        });
-        dropDown3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                degree3.showDropDown();
-            }
-        });
+        dropDown1.setOnClickListener(v -> degree1.showDropDown());
+        dropDown2.setOnClickListener(v -> degree2.showDropDown());
+        dropDown3.setOnClickListener(v -> degree3.showDropDown());
 
 
 
@@ -112,6 +97,7 @@ public class SignUpActivity extends AppCompatActivity {
            //check validation on email and password
             String email = mEmail.getText().toString().trim();
             String password = password1.getText().toString().trim();
+            String passwordAgain = password2.getText().toString().trim();
             String fullName = name.getText().toString();
             String lastName1 = lastName.getText().toString().trim();
             String chosenDegree1 = degree1.getText().toString();
@@ -131,6 +117,14 @@ public class SignUpActivity extends AppCompatActivity {
             }
             if(TextUtils.isEmpty(password)){
                 password1.setError("Password is required");
+                return;
+            }
+            if(TextUtils.isEmpty(passwordAgain)){
+                password2.setError("Password is required");
+                return;
+            }
+            if(passwordAgain.equals(password)){
+                password2.setError("Password is not matching");
                 return;
             }
             if(password.length()<6){

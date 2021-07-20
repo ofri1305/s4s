@@ -71,13 +71,7 @@ public class FragmentMemes extends Fragment {
         Button postMeme=getView().findViewById(R.id.addMemeButton);
         loadAllMemes();
         loadLiveMemes();
-        postMeme.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadMeme();
-            }
-
-        });
+        postMeme.setOnClickListener(v -> uploadMeme());
 //        StorageReference profileRef = storageReference.child(nameOfCourse+"/meme/"+date);
 //        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
 //            Picasso.get().load(uri).into(memePhoto);

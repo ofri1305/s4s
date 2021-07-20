@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_second,container,false);
         //connect to layout
         myList = v.findViewById(R.id.list);
-        theFilter = v.findViewById(R.id.editTextTextPersonName);
+        //theFilter = v.findViewById(R.id.editTextTextPersonName);
        //set adapter
 
         ArrayList <String> degrees= Utils.globalUser.getCourseNames();
@@ -105,28 +105,27 @@ public class HomeFragment extends Fragment {
                 return view;
             }
         };
-//        b.setOnClickListener(v1 -> {
-//            startActivity(new Intent(getContext(),TabbedActivity.class));
-//
-//        });
+
 
         myList.setAdapter(adapter);
-        theFilter.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ( HomeFragment.this).adapter.getFilter().filter(s);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        //SAVE FOR SEARCH IN FILES
+//        theFilter.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                ( HomeFragment.this).adapter.getFilter().filter(s);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
 
         //setting on item click for each item on thr list and put extra value of its name
         myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {

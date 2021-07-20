@@ -58,55 +58,55 @@ public class TabbedActivity extends AppCompatActivity {
 //        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null).show());
 
-    sDegree = findViewById(R.id.spinner);
-    sYear = findViewById(R.id.spinner2);
-    sSemester = findViewById(R.id.spinner3);
-        fStore=FirebaseFirestore.getInstance();
-    //set array adapters for spinners
-    ArrayAdapter forSpinner1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,degrees);
-    ArrayAdapter forSpinner2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,years);
-    ArrayAdapter forSpinner3 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,semesters);
-
-    sDegree.setAdapter(forSpinner1);
-    sYear.setAdapter(forSpinner2);
-    sSemester.setAdapter(forSpinner3);
-
-    //set onItemSelectedListener listeners to the spinners
-    sDegree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            selectedDegree = degrees[position];
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    });
-
-    sYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            selectedYear = years[position];
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    });
-
-    sSemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            selectedSemester = semesters[position];
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-    });
+//    sDegree = findViewById(R.id.spinner);
+//    sYear = findViewById(R.id.spinner2);
+//    sSemester = findViewById(R.id.spinner3);
+//        fStore=FirebaseFirestore.getInstance();
+//    //set array adapters for spinners
+//    ArrayAdapter forSpinner1 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,degrees);
+//    ArrayAdapter forSpinner2 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,years);
+//    ArrayAdapter forSpinner3 = new ArrayAdapter(this, android.R.layout.simple_spinner_item,semesters);
+//
+//    sDegree.setAdapter(forSpinner1);
+//    sYear.setAdapter(forSpinner2);
+//    sSemester.setAdapter(forSpinner3);
+//
+//    //set onItemSelectedListener listeners to the spinners
+//    sDegree.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//            selectedDegree = degrees[position];
+//        }
+//
+//        @Override
+//        public void onNothingSelected(AdapterView<?> parent) {
+//
+//        }
+//    });
+//
+//    sYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//            selectedYear = years[position];
+//        }
+//
+//        @Override
+//        public void onNothingSelected(AdapterView<?> parent) {
+//
+//        }
+//    });
+//
+//    sSemester.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//        @Override
+//        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//            selectedSemester = semesters[position];
+//        }
+//
+//        @Override
+//        public void onNothingSelected(AdapterView<?> parent) {
+//
+//        }
+//    });
 
 
 

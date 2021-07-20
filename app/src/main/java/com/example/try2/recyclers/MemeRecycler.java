@@ -1,6 +1,7 @@
 package com.example.try2.recyclers;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,8 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull  MemeRecycler.ViewHolder holder, int position) {
-
+        holder.whoPosted.setText(memes.get(position).getUserName());
+        //holder.image.setImageURI(Uri.parse(memes.get(position).getUriToImage()));
     }
 
     @Override
@@ -55,11 +57,8 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             whoPosted = itemView.findViewById(R.id.memeUserName);
             image = itemView.findViewById(R.id.memePhoto);
-
-
         }
     }
 }
