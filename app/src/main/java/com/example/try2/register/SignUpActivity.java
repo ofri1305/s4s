@@ -131,6 +131,10 @@ public class SignUpActivity extends AppCompatActivity {
                 password1.setError("Password must be at least 6 characters");
                 return;
             }
+            if(chosenDegree1.equals("") && chosenDegree2.equals("") && chosenDegree3.equals("")){
+                Toast.makeText(SignUpActivity.this, "must choose at least 1 degree", Toast.LENGTH_SHORT).show();
+                return;
+            }
             p.setVisibility(View.VISIBLE);
 
             //register the user in firebase
