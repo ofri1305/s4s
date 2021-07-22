@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.try2.R;
+import com.example.try2.Report;
 import com.example.try2.TextActivity;
 
 
@@ -67,6 +68,7 @@ public class SettingsFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_third, container, false);
         Button priAndPol=(Button) v.findViewById(R.id.buttonPriAndPol);
         Button aboutUs=(Button) v.findViewById(R.id.buttonAboutUs);
+        Button report=(Button) v.findViewById(R.id.buttonReport);
         String value1="priAndPol";
         String value2="aboutUs";
 
@@ -87,6 +89,13 @@ public class SettingsFragment extends Fragment {
             public void onClick(View v) {
                 Intent in=new Intent(getActivity(),TextActivity.class);
                 in.putExtra("num2",value2);
+                startActivity(in);
+            }
+        });
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getActivity(), Report.class);
                 startActivity(in);
             }
         });
