@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.try2.R;
 import com.example.try2.objects.Meme;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.ArrayList;
@@ -41,7 +42,9 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
     @Override
     public void onBindViewHolder(@NonNull  MemeRecycler.ViewHolder holder, int position) {
         holder.whoPosted.setText(memes.get(position).getUserName());
-        //holder.image.setImageURI(Uri.parse(memes.get(position).getUriToImage()));
+        Uri imgUri=Uri.parse(memes.get(position).getUriToImage());
+        Picasso.get().load(imgUri).placeholder(R.drawable.ic_home_black_24dp).into( holder.image);
+
     }
 
     @Override

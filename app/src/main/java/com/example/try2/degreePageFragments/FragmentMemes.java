@@ -23,6 +23,7 @@ import com.example.try2.objects.Material;
 import com.example.try2.objects.Meme;
 import com.example.try2.recyclers.MaterialRecycler;
 import com.example.try2.recyclers.MemeRecycler;
+import com.example.try2.utils.Utils;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -125,7 +126,7 @@ public class FragmentMemes extends Fragment {
         StorageReference fileRef = storageReference.child(nameOfCourse+"/meme/"+date);
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
-                Meme meme = new Meme(uri.toString(),fAuth.getCurrentUser().toString());
+                Meme meme = new Meme(uri.toString(), Utils.globalUser.getFirstName()+" "+Utils.globalUser.getLastName());
                 //Picasso.get().load((Uri) uri).into(memePhoto);
                 fStore.collection(nameOfCourse).document("meme").collection("memesObjects").document(date.toString()).set(meme);
                 memes.add(meme);

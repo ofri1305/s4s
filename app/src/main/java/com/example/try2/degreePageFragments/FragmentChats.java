@@ -19,6 +19,7 @@ import com.example.try2.recyclers.ChatRecycler;
 import com.example.try2.recyclers.MaterialRecycler;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -28,7 +29,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
@@ -37,16 +40,17 @@ import static com.example.try2.utils.Utils.globalUser;
 
 public class FragmentChats extends Fragment {
     StorageReference storageReference;
-    FirebaseStorage storage ;
+    FirebaseStorage storage;
     FirebaseFirestore fStore;
     EditText textToSend;
     Button sendButton;
     private String nameOfCourse;
     private ArrayList<Chat> chats;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+                             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_chats, container, false);
     }
 
@@ -60,53 +64,70 @@ public class FragmentChats extends Fragment {
         sendButton = view.findViewById(R.id.buttonSend);
         nameOfCourse = getArguments().getString("nameOfCourse");
         sendButton.setOnClickListener(v -> setComponents());
-        loadAllChats();
-        //setRecyclerView();
+        chats=new ArrayList<>();
         liveChats();
+
+        //setRecyclerView();
+
     }
 
     private void loadAllChats() {
         //load all chats
         fStore.collection(nameOfCourse).document("chats").collection("chatsObjects").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    chats= (ArrayList<Chat>) task.getResult().toObjects(Chat.class);
-                    setRecyclerView();
-                }
-            });
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                chats = (ArrayList<Chat>) task.getResult().toObjects(Chat.class);
+                setRecyclerView();
+
+            }
+        });
     }
 
-    private void liveChats(){
-      fStore.collection(nameOfCourse).
-              document("chats").
-              collection("chatsObjects").
-              addSnapshotListener(new EventListener<QuerySnapshot>() {
-                  @Override
-                  public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error!=null){
-                            return;
-                        }
-                        chats = (ArrayList<Chat>) value.toObjects(Chat.class);
-                        setRecyclerView();
-                  }
-              });
-    }
-    private void setComponents(){
-        String username =globalUser.getFirstName().concat(" "+ globalUser.getLastName()) ;
-        Chat chat = new Chat(username,textToSend.getText().toString(),new Date().toString());
+    private void liveChats() {
         fStore.collection(nameOfCourse).
                 document("chats").
                 collection("chatsObjects").
-                add(chat);
+                addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+                            return;
+                        }
+
+
+                        try {
+
+                            chats= (ArrayList<Chat>) value.toObjects(Chat.class);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+
+
+                        setRecyclerView();
+                    }
+                });
     }
 
+    private void setComponents() {
+        String username = globalUser.getFirstName().concat(" " + globalUser.getLastName());
+        Chat chat = new Chat(username, textToSend.getText().toString(), new Date().toString());
+        long date = new Date().getTime();
+        fStore.collection(nameOfCourse).
+                document("chats").
+                collection("chatsObjects").
+                document("" + date).
+                set(chat);
+    }
 
 
     private void setRecyclerView() {
         RecyclerView recyclerView = getView().findViewById(R.id.chat_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+
         recyclerView.setLayoutManager(layoutManager);
-        ChatRecycler recycler= new ChatRecycler(chats,nameOfCourse,getContext());
+        recyclerView.scrollToPosition(chats.size()-1);
+        ChatRecycler recycler = new ChatRecycler(chats, nameOfCourse, getContext());
         recyclerView.setAdapter(recycler);
     }
 

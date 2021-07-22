@@ -5,11 +5,15 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,6 +44,7 @@ public class FragmentMaterial extends Fragment {
     StorageReference storageReference;
     FirebaseStorage storage ;
     FirebaseFirestore fStore;
+    private EditText description;
     private String nameOfCourse;
     private ArrayList<Material>materials;
     @Nullable
@@ -56,8 +61,10 @@ public class FragmentMaterial extends Fragment {
         storageReference = storage.getReference();
         fStore= FirebaseFirestore.getInstance();
         nameOfCourse=getArguments().getString("nameOfCourse");
+        description=getView().findViewById(R.id.description_material);
         Button button=getView().findViewById(R.id.upload_file);
         loadAllMaterials();
+        searchItem();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +79,7 @@ public class FragmentMaterial extends Fragment {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 materials= (ArrayList<Material>) task.getResult().toObjects(Material.class);
-                setRecyclerView();
+                setRecyclerView(materials);
 
             }
         });
@@ -105,17 +112,52 @@ public class FragmentMaterial extends Fragment {
         StorageReference fileRef = storageReference.child(nameOfCourse+"/material/"+date);
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
-                Material material=new Material(uri.toString(),"ttt",date.toString(),typeOfFile);
+                Material material=new Material(uri.toString(),description.getText().toString(),date.toString(),typeOfFile);
                 fStore.collection(nameOfCourse).document("material").collection("materialsObjects").document(date.toString()).set(material);
                 materials.add(material);
-                setRecyclerView();
+                setRecyclerView(materials);
             });
         }).addOnFailureListener((e) -> {
 
         });
     }
 
-    private void setRecyclerView() {
+    private void searchItem() {
+        EditText editText = getView().findViewById(R.id.search_item);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ArrayList<Material> textToCheckList = new ArrayList<>();
+                String textToCheck = s.toString();
+                if (textToCheck.length() != 0) {
+
+                    for (Material searchModel :materials) {
+                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
+                            textToCheckList.add(searchModel);
+                        }
+                    }
+                } else {
+                    textToCheckList.addAll(materials);
+                }
+
+                // Setting new list to adapter and notifying it
+                setRecyclerView(textToCheckList);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    private void setRecyclerView(ArrayList<Material>materials) {
         RecyclerView recyclerView = getView().findViewById(R.id.material_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
