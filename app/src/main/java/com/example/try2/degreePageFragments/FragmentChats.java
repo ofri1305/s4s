@@ -63,7 +63,10 @@ public class FragmentChats extends Fragment {
         textToSend = view.findViewById(R.id.textToSend);
         sendButton = view.findViewById(R.id.buttonSend);
         nameOfCourse = getArguments().getString("nameOfCourse");
-        sendButton.setOnClickListener(v -> setComponents());
+        sendButton.setOnClickListener(v -> {
+            setComponents();
+            textToSend.setText("");
+        });
         chats=new ArrayList<>();
         liveChats();
 
