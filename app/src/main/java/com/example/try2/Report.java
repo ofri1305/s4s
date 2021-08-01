@@ -23,6 +23,8 @@ public class Report extends AppCompatActivity {
         subject = findViewById(R.id.edit_text_subject);
         message = findViewById(R.id.edit_text_message);
 
+        to.setText("tamarofriprojects@gmail.com");
+
         Button buttonSend = findViewById(R.id.button_send);
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,14 +36,14 @@ public class Report extends AppCompatActivity {
     }
 
     private void sendMail(){
-        String recipientList = to.getText().toString();
-        String[] recipients = recipientList.split(",");
+        String recipients = to.getText().toString();
+      //  String[] recipients = recipientList.split(",");
 
         String theSubject = subject.getText().toString();
         String theMessage = message.getText().toString();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, "tamarofriprojects@gmail.com"+recipients);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
         intent.putExtra(Intent.EXTRA_SUBJECT, theSubject);
         intent.putExtra(Intent.EXTRA_TEXT, theMessage);
 
