@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.try2.R;
 import com.example.try2.degreePageFragments.TabbedActivity;
@@ -84,13 +86,13 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_second,container,false);
         //connect to layout
         myList = v.findViewById(R.id.list);
+        TextView check = v.findViewById(R.id.check);
         //theFilter = v.findViewById(R.id.editTextTextPersonName);
        //set adapter
 
         //ArrayList <String> degrees= Utils.globalUser.getCourseNames();
         ArrayList <Course> degrees= Utils.globalUser.getCourses();
-
-
+        //check.setText(degrees.get(1).getCourseName());
 
 //        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);
 //        myList.setAdapter(adapter);
@@ -110,7 +112,8 @@ public class HomeFragment extends Fragment {
         };
 
 
-        myList.setAdapter(adapter);
+        //myList.setAdapter(adapter); //CRASHES THE APP!!!
+
 
         //SAVE FOR SEARCH IN FILES
 //        theFilter.addTextChangedListener(new TextWatcher() {

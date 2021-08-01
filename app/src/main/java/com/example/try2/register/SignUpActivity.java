@@ -13,9 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.try2.R;
+import com.example.try2.SpinnerAdapter;
 import com.example.try2.objects.Course;
 import com.example.try2.objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     List<String> degrees;
     AutoCompleteTextView degree1, degree2, degree3;
     ImageView dropDown1, dropDown2, dropDown3;
+    Spinner spinner;
 
 
     @Override
@@ -51,6 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
         password2=findViewById(R.id.password2);
         signUpButton=findViewById(R.id.buttonSignUp);
         p = findViewById(R.id.progressBar);
+        spinner = findViewById(R.id.spinnerDegree);
 
         //autoComplete Degrees
         degree1 = findViewById(R.id.autoCompleteDegree1);
@@ -74,31 +78,29 @@ public class SignUpActivity extends AppCompatActivity {
                 "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
                 "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
         ArrayList<Course> customCourses = new ArrayList<>();
+        //Course.initCourses();
         customCourses.add(new Course("COMPUTER SCIENCE", R.drawable.ic_computer));
         customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
         customCourses.add(new Course("MEDICINE", R.drawable.ic_medicine));
         customCourses.add(new Course("MATHEMATICS", R.drawable.ic_math));
 
 
+        SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, R.layout.spinner, customCourses);
+        spinner.setAdapter(spinnerAdapter);
 
         //set adapter for autoComplete degrees
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,customCourses);
-        degree1.setAdapter(adapter);
-        degree2.setAdapter(adapter);
-        degree3.setAdapter(adapter);
+        //ArrayAdapter<String>adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,customCourses);
+//        degree1.setAdapter(spinnerAdapter);
+//        degree2.setAdapter(spinnerAdapter);
+//        degree3.setAdapter(spinnerAdapter);
 
         //set onClick for dropdown images
-        dropDown1.setOnClickListener(v -> degree1.showDropDown());
-        dropDown2.setOnClickListener(v -> degree2.showDropDown());
-        dropDown3.setOnClickListener(v -> degree3.showDropDown());
+//        dropDown1.setOnClickListener(v -> degree1.showDropDown());
+//        dropDown2.setOnClickListener(v -> degree2.showDropDown());
+//        dropDown3.setOnClickListener(v -> degree3.showDropDown());
 
 
-
-
-        ArrayList<String> chosenDegrees =new ArrayList<>();
-
-
-
+        ArrayList<Course> chosenDegrees =new ArrayList<>();
 
 
         signUpButton.setOnClickListener(v -> {
@@ -113,9 +115,21 @@ public class SignUpActivity extends AppCompatActivity {
             String chosenDegree3 = degree3.getText().toString();
 
             //add the chosen degrees to the list chosen degrees
-            if(!(chosenDegree1.equals("")) && !(chosenDegree1.equals(chosenDegree2)) && !(chosenDegree1.equals(chosenDegree3))){ chosenDegrees.add(chosenDegree1); }
-            if(!(chosenDegree2.equals("")) && !(chosenDegree2.equals(chosenDegree1)) && !(chosenDegree2.equals(chosenDegree3)) ){ chosenDegrees.add(chosenDegree2); }
-            if(!(chosenDegree3.equals("")) && !(chosenDegree3.equals(chosenDegree1)) && !(chosenDegree3.equals(chosenDegree2))){ chosenDegrees.add(chosenDegree3); }
+            if(!(chosenDegree1.equals("")) && !(chosenDegree1.equals(chosenDegree2)) && !(chosenDegree1.equals(chosenDegree3))){
+                Course course = customCourses.stream()
+                        .filter(degree -> chosenDegree1.equals(degree.getCourseName())).findAny().orElse(null);
+                chosenDegrees.add(course);
+            }
+            if(!(chosenDegree2.equals("")) && !(chosenDegree2.equals(chosenDegree1)) && !(chosenDegree2.equals(chosenDegree3)) ){
+                Course course = customCourses.stream()
+                        .filter(degree -> chosenDegree2.equals(degree.getCourseName())).findAny().orElse(null);
+                chosenDegrees.add(course);
+            }
+            if(!(chosenDegree3.equals("")) && !(chosenDegree3.equals(chosenDegree1)) && !(chosenDegree3.equals(chosenDegree2))){
+                Course course = customCourses.stream()
+                        .filter(degree -> chosenDegree3.equals(degree.getCourseName())).findAny().orElse(null);
+                chosenDegrees.add(course);
+            }
 
 
 
@@ -158,6 +172,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 userID = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("users").document(userID);
                                 User user = new User(fullName,lastName1,email,chosenDegrees);
+                                //Log.i("chosen degrees", String.valueOf(chosenDegrees));
 
                                 //creating a profile with the new user's details
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {

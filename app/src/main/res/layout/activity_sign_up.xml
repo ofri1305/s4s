@@ -110,7 +110,7 @@
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password2"
-        app:layout_constraintVertical_bias="0.097" />
+        app:layout_constraintVertical_bias="0.262" />
 
     <AutoCompleteTextView
         android:id="@+id/autoCompleteDegree1"
@@ -180,5 +180,14 @@
         app:layout_constraintTop_toBottomOf="@+id/dropDown2"
         app:layout_constraintVertical_bias="0.538"
         app:srcCompat="@drawable/dropdown_foreground" />
+
+    <Spinner
+        android:id="@+id/spinnerDegree"
+        android:layout_width="263dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
