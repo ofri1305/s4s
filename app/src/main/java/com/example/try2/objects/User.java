@@ -5,14 +5,22 @@ import java.util.ArrayList;
 public class User {
     private String firstName,lastName,email;
     private ArrayList<String> courseNames;
+    private ArrayList<Course> courses;
 
     public User() {}
 
-    public User(String firstName, String lastName, String email, ArrayList<String> courseNames) {
+//    public User(String firstName, String lastName, String email, ArrayList<String> courseNames) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//        this.courseNames = courseNames;
+//    }
+
+    public User(String firstName, String lastName, String email, ArrayList<Course> courses) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.courseNames = courseNames;
+        this.courses = courses;
     }
 
     public String getFirstName() {
@@ -45,5 +53,13 @@ public class User {
 
     public void setCourseNames(ArrayList<String> courseNames) {
         this.courseNames = courseNames;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
     }
 }

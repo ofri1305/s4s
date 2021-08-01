@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 import com.example.try2.R;
 import com.example.try2.degreePageFragments.TabbedActivity;
+import com.example.try2.objects.Course;
 import com.example.try2.utils.Utils;
 
 import java.util.ArrayList;
@@ -86,7 +87,9 @@ public class HomeFragment extends Fragment {
         //theFilter = v.findViewById(R.id.editTextTextPersonName);
        //set adapter
 
-        ArrayList <String> degrees= Utils.globalUser.getCourseNames();
+        //ArrayList <String> degrees= Utils.globalUser.getCourseNames();
+        ArrayList <Course> degrees= Utils.globalUser.getCourses();
+
 
 
 //        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);

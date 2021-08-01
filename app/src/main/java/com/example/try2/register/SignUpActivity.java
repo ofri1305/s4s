@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.try2.R;
+import com.example.try2.objects.Course;
 import com.example.try2.objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -72,9 +73,16 @@ public class SignUpActivity extends AppCompatActivity {
         degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
                 "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
                 "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
+        ArrayList<Course> customCourses = new ArrayList<>();
+        customCourses.add(new Course("COMPUTER SCIENCE", R.drawable.ic_computer));
+        customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
+        customCourses.add(new Course("MEDICINE", R.drawable.ic_medicine));
+        customCourses.add(new Course("MATHEMATICS", R.drawable.ic_math));
+
+
 
         //set adapter for autoComplete degrees
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,degrees);
+        ArrayAdapter<String>adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,customCourses);
         degree1.setAdapter(adapter);
         degree2.setAdapter(adapter);
         degree3.setAdapter(adapter);
