@@ -35,8 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseFirestore fStore;
     String userID;
-    List<String> degrees;
-    ImageView dropDown1, dropDown2, dropDown3;
+//    List<String> degrees;
     Spinner spinner1, spinner2, spinner3;
 
 
@@ -64,9 +63,9 @@ public class SignUpActivity extends AppCompatActivity {
         fStore= FirebaseFirestore.getInstance();
 
         //set the list- WE NEED TO PUT THE LIST IN FIREBASE!!!!
-        degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
-                "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
-                "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
+//        degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
+//                "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
+//                "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
         ArrayList<Course> customCourses = new ArrayList<>();
         //Course.initCourses();
         customCourses.add(new Course("COMPUTER SCIENCE", R.drawable.ic_computer));
@@ -82,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
 
 
 
-        ArrayList<Course> chosenDegrees =new ArrayList<>();
+        ArrayList<Course> chosenDegrees = new ArrayList<>();
 
 
         signUpButton.setOnClickListener(v -> {
