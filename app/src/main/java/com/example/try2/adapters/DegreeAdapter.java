@@ -1,4 +1,4 @@
-package com.example.try2;
+package com.example.try2.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.example.try2.R;
 
 import java.util.List;
 

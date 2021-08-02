@@ -66,13 +66,7 @@ public class FragmentMaterial extends Fragment {
         Button button=getView().findViewById(R.id.upload_file);
         loadAllMaterials();
         searchItem();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                uploadFile();
-
-            }
-        });
+        button.setOnClickListener(v -> uploadFile());
     }
 
     private void loadAllMaterials() {
@@ -136,7 +130,7 @@ public class FragmentMaterial extends Fragment {
                 ArrayList<Material> textToCheckList = new ArrayList<>();
                 String textToCheck = s.toString();
                 if (textToCheck.length() != 0) {
-
+                //materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
                     for (Material searchModel :materials) {
                         if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
                             textToCheckList.add(searchModel);

@@ -20,6 +20,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.try2.R;
+import com.example.try2.adapters.ListDegreesAdapter;
 import com.example.try2.degreePageFragments.TabbedActivity;
 import com.example.try2.objects.Course;
 import com.example.try2.utils.Utils;
@@ -66,7 +67,6 @@ public class HomeFragment extends Fragment {
     }
     ListView myList;
     EditText theFilter;
-    ArrayAdapter<String> adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,42 +74,34 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_second,container,false);
-        //connect to layout
         myList = v.findViewById(R.id.list);
-        TextView check = v.findViewById(R.id.check);
-        //theFilter = v.findViewById(R.id.editTextTextPersonName);
-       //set adapter
 
         //ArrayList <String> degrees= Utils.globalUser.getCourseNames();
         ArrayList <Course> degrees= Utils.globalUser.getCourses();
-        //check.setText(degrees.get(1).getCourseName());
-
+        ListDegreesAdapter listDegreesAdapter = new ListDegreesAdapter(getActivity(), R.layout.degree_home, degrees);
+        myList.setAdapter(listDegreesAdapter);
 //        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);
 //        myList.setAdapter(adapter);
         //add to list
 
-
-        adapter=new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item,degrees){
-
-            //the design
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view= super.getView(position, convertView, parent);
-                view.setBackground(getResources().getDrawable(R.drawable.costum_row));
-                return view;
-            }
-        };
+//
+//        adapter=new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item,degrees){
+//
+//            //the design
+//            @NonNull
+//            @Override
+//            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//                View view= super.getView(position, convertView, parent);
+//                view.setBackground(getResources().getDrawable(R.drawable.costum_row));
+//                return view;
+//            }
+//        };
 
 
         //myList.setAdapter(adapter); //CRASHES THE APP!!!

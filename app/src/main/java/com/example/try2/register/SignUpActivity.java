@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.try2.R;
-import com.example.try2.SpinnerAdapter;
+import com.example.try2.adapters.SpinnerAdapter;
 import com.example.try2.objects.Course;
 import com.example.try2.objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,13 +32,12 @@ public class SignUpActivity extends AppCompatActivity {
     EditText name, lastName, mEmail, password1, password2;
     FirebaseAuth fAuth;
     Button signUpButton;
-    ProgressBar p;
+    ProgressBar progressBar;
     FirebaseFirestore fStore;
     String userID;
     List<String> degrees;
-    AutoCompleteTextView degree1, degree2, degree3;
     ImageView dropDown1, dropDown2, dropDown3;
-    Spinner spinner;
+    Spinner spinner1, spinner2, spinner3;
 
 
     @Override
@@ -53,21 +51,13 @@ public class SignUpActivity extends AppCompatActivity {
         password1=findViewById(R.id.password1);
         password2=findViewById(R.id.password2);
         signUpButton=findViewById(R.id.buttonSignUp);
-        p = findViewById(R.id.progressBar);
-        spinner = findViewById(R.id.spinnerDegree);
+        progressBar = findViewById(R.id.progressBar);
+        spinner1 = findViewById(R.id.spinnerDegree1);
+        spinner2 = findViewById(R.id.spinnerDegree2);
+        spinner3 = findViewById(R.id.spinnerDegree3);
 
-        //autoComplete Degrees
-        degree1 = findViewById(R.id.autoCompleteDegree1);
-        degree2 = findViewById(R.id.autoCompleteDegree2);
-        degree3 = findViewById(R.id.autoCompleteDegree3);
-        degree1.setThreshold(1);
-        degree2.setThreshold(1);
-        degree3.setThreshold(1);
 
-        //imageView DropDown
-        dropDown1 = findViewById(R.id.dropDown1);
-        dropDown2 = findViewById(R.id.dropDown2);
-        dropDown3 = findViewById(R.id.dropDown3);
+
 
         //firebase stuff
         fAuth= FirebaseAuth.getInstance();
@@ -86,18 +76,10 @@ public class SignUpActivity extends AppCompatActivity {
 
 
         SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, R.layout.spinner, customCourses);
-        spinner.setAdapter(spinnerAdapter);
+        spinner1.setAdapter(spinnerAdapter);
+        spinner2.setAdapter(spinnerAdapter);
+        spinner3.setAdapter(spinnerAdapter);
 
-        //set adapter for autoComplete degrees
-        //ArrayAdapter<String>adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,customCourses);
-//        degree1.setAdapter(spinnerAdapter);
-//        degree2.setAdapter(spinnerAdapter);
-//        degree3.setAdapter(spinnerAdapter);
-
-        //set onClick for dropdown images
-//        dropDown1.setOnClickListener(v -> degree1.showDropDown());
-//        dropDown2.setOnClickListener(v -> degree2.showDropDown());
-//        dropDown3.setOnClickListener(v -> degree3.showDropDown());
 
 
         ArrayList<Course> chosenDegrees =new ArrayList<>();
@@ -110,9 +92,9 @@ public class SignUpActivity extends AppCompatActivity {
             String passwordAgain = password2.getText().toString().trim();
             String fullName = name.getText().toString();
             String lastName1 = lastName.getText().toString().trim();
-            String chosenDegree1 = degree1.getText().toString();
-            String chosenDegree2 = degree2.getText().toString();
-            String chosenDegree3 = degree3.getText().toString();
+            String chosenDegree1 = spinner1.getSelectedItem().toString();
+            String chosenDegree2 = spinner2.getSelectedItem().toString();
+            String chosenDegree3 = spinner3.getSelectedItem().toString();
 
             //add the chosen degrees to the list chosen degrees
             if(!(chosenDegree1.equals("")) && !(chosenDegree1.equals(chosenDegree2)) && !(chosenDegree1.equals(chosenDegree3))){
@@ -157,7 +139,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Toast.makeText(SignUpActivity.this, "must choose at least 1 degree", Toast.LENGTH_SHORT).show();
                 return;
             }
-            p.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
 
             //register the user in firebase
             fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
@@ -194,7 +176,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 }else{
                     Toast.makeText(SignUpActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-                    p.setVisibility(View.GONE);
+                    progressBar.setVisibility(View.GONE);
 
                 }
             });

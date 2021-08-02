@@ -7,187 +7,93 @@
     android:background="@drawable/clean_back2"
     tools:context=".register.SignUpActivity">
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/lastName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
-
-    <EditText
-        android:id="@+id/lastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.915" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="e-mail"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/password1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.957" />
-
-    <EditText
-        android:id="@+id/password1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/password2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
-
-    <EditText
-        android:id="@+id/password2"
-        android:layout_width="210dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="276dp"
-        android:ems="10"
-        android:hint="enter password again"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:background="@drawable/costum_button"
-        android:backgroundTint="#E8C5F6E7"
-        android:text="sign up"
-        android:textColor="#009688"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="573dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignUp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="204dp"
-        android:layout_height="29dp"
-        android:text="choose your degree (max 3)"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password2"
-        app:layout_constraintVertical_bias="0.262" />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="first name"
+            android:inputType="textPersonName" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteDegree1"
-        android:layout_width="183dp"
-        android:layout_height="33dp"
-        app:layout_constraintBottom_toTopOf="@+id/autoCompleteDegree2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.481" />
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="last name"
+            android:inputType="textPersonName" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteDegree2"
-        android:layout_width="183dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/autoCompleteDegree3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.766" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="email"
+            android:inputType="textPersonName" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autoCompleteDegree3"
-        android:layout_width="183dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.901" />
+        <EditText
+            android:id="@+id/password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="enter new password"
+            android:inputType="textPassword" />
 
-    <ImageView
-        android:id="@+id/dropDown1"
-        android:layout_width="47dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/autoCompleteDegree1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toEndOf="@+id/autoCompleteDegree1"
-        app:layout_constraintTop_toBottomOf="@+id/textView15"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/dropdown_foreground" />
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="enter your password again"
+            android:inputType="textPassword" />
 
-    <ImageView
-        android:id="@+id/dropDown2"
-        android:layout_width="47dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/autoCompleteDegree2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toEndOf="@+id/autoCompleteDegree2"
-        app:layout_constraintTop_toBottomOf="@+id/dropDown1"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/dropdown_foreground" />
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Choose 3 degrees max"
+            android:textColor="#191818" />
 
-    <ImageView
-        android:id="@+id/dropDown3"
-        android:layout_width="47dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
-        app:layout_constraintStart_toEndOf="@+id/autoCompleteDegree3"
-        app:layout_constraintTop_toBottomOf="@+id/dropDown2"
-        app:layout_constraintVertical_bias="0.538"
-        app:srcCompat="@drawable/dropdown_foreground" />
+        <Spinner
+            android:id="@+id/spinnerDegree1"
+            android:layout_width="match_parent"
+            android:layout_height="53dp" />
 
-    <Spinner
-        android:id="@+id/spinnerDegree"
-        android:layout_width="263dp"
-        android:layout_height="37dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Spinner
+            android:id="@+id/spinnerDegree2"
+            android:layout_width="match_parent"
+            android:layout_height="53dp" />
 
+        <Spinner
+            android:id="@+id/spinnerDegree3"
+            android:layout_width="match_parent"
+            android:layout_height="53dp" />
+
+        <Button
+            android:id="@+id/buttonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/costum_button"
+            android:backgroundTint="#E9C5F6E7"
+            android:text="sign up" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
