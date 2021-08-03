@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class Course {
     private String courseName;
     private int logo;
-    //private static ArrayList<Course> courses = new ArrayList<>();
+    //
+    // private static ArrayList<Course> courses = new ArrayList<>();
 
     public Course(String courseName, int logo) {
         this.courseName = courseName;
