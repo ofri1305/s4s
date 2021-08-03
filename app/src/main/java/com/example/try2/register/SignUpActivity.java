@@ -126,7 +126,7 @@ public class SignUpActivity extends AppCompatActivity {
                 password2.setError("Password is required");
                 return;
             }
-            if(passwordAgain.equals(password)){
+            if(!(passwordAgain.equals(password))){
                 password2.setError("Password is not matching");
                 return;
             }
@@ -153,15 +153,9 @@ public class SignUpActivity extends AppCompatActivity {
                                 userID = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("users").document(userID);
                                 User user = new User(fullName,lastName1,email,chosenDegrees);
-                                //Log.i("chosen degrees", String.valueOf(chosenDegrees));
 
                                 //creating a profile with the new user's details
-                                documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Log.d("", "onSuccess: user profile is created for "+userID);
-                                    }
-                                });
+                                documentReference.set(user).addOnSuccessListener(aVoid -> Log.d("", "onSuccess: user profile is created for "+userID));
 
                                 startActivity(new Intent(getApplicationContext(), Login.class));
 //                            }else{
