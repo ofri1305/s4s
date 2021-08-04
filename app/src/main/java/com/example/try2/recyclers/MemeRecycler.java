@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //import org.jetbrains.annotations.NotNull;
 
 
-
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.try2.R;
 import com.example.try2.objects.Meme;
 import com.squareup.picasso.Picasso;
@@ -35,13 +35,14 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meme,parent,false);
+        //View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meme,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meme2,parent,false);
         return new MemeRecycler.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull  MemeRecycler.ViewHolder holder, int position) {
-        holder.whoPosted.setText(memes.get(position).getUserName());
+        holder.whoPosted.setText(memes.get(position).getUserName().toUpperCase());
         Uri imgUri=Uri.parse(memes.get(position).getUriToImage());
         Picasso.get().load(imgUri).placeholder(R.drawable.ic_home_black_24dp).into( holder.image);
 
@@ -57,12 +58,17 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
 
         public TextView whoPosted;
         public ImageView image;
+        private LottieAnimationView lottieAnimationView;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            whoPosted = itemView.findViewById(R.id.memeUserName);
-            image = itemView.findViewById(R.id.memePhoto);
+//            whoPosted = itemView.findViewById(R.id.memeUserName);
+//            image = itemView.findViewById(R.id.memePhoto);
+//            lottieAnimationView = itemView.findViewById(R.id.animationView);
+            whoPosted = itemView.findViewById(R.id.userMeme2);
+            image = itemView.findViewById(R.id.postMeme2);
+
         }
     }
 }
