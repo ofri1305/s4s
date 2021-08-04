@@ -34,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/postMeme2"
-                android:layout_width="match_parent"
-                android:layout_height="259dp"
+                android:layout_width="330dp"
+                android:layout_height="278dp"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
