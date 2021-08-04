@@ -14,10 +14,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,6 +42,8 @@ import java.util.Date;
 
 import javax.annotation.Nullable;
 
+import static com.example.try2.utils.Utils.globalUser;
+
 public class FragmentMaterial extends Fragment {
     StorageReference storageReference;
     FirebaseStorage storage ;
@@ -47,6 +51,7 @@ public class FragmentMaterial extends Fragment {
     private EditText description;
     private String nameOfCourse;
     private ArrayList<Material>materials;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,10 +68,10 @@ public class FragmentMaterial extends Fragment {
         fStore= FirebaseFirestore.getInstance();
         nameOfCourse=getArguments().getString("nameOfCourse");
         description=getView().findViewById(R.id.description_material);
-        Button button=getView().findViewById(R.id.upload_file);
+        ImageButton uploadButton=getView().findViewById(R.id.upload_file);
         loadAllMaterials();
         searchItem();
-        button.setOnClickListener(v -> uploadFile());
+        uploadButton.setOnClickListener(v -> uploadFile());
     }
 
     private void loadAllMaterials() {
@@ -75,7 +80,6 @@ public class FragmentMaterial extends Fragment {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 materials= (ArrayList<Material>) task.getResult().toObjects(Material.class);
                 setRecyclerView(materials);
-
             }
         });
     }
@@ -102,12 +106,12 @@ public class FragmentMaterial extends Fragment {
         }
     }
     private void uploadImageToFirebase(Uri imageUri,String typeOfFile) {
-
+        String username = globalUser.getFirstName().concat(" " + globalUser.getLastName());
         Long date=new Date().getTime();
         StorageReference fileRef = storageReference.child(nameOfCourse+"/material/"+date);
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
-                Material material=new Material(uri.toString(),description.getText().toString(),date.toString(),typeOfFile);
+                Material material=new Material(username,uri.toString(),description.getText().toString(),date.toString(),typeOfFile);
                 fStore.collection(nameOfCourse).document("material").collection("materialsObjects").document(date.toString()).set(material);
                 materials.add(material);
                 setRecyclerView(materials);
@@ -130,12 +134,12 @@ public class FragmentMaterial extends Fragment {
                 ArrayList<Material> textToCheckList = new ArrayList<>();
                 String textToCheck = s.toString();
                 if (textToCheck.length() != 0) {
-                //materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
-                    for (Material searchModel :materials) {
-                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
-                            textToCheckList.add(searchModel);
-                        }
-                    }
+                materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
+//                    for (Material searchModel :materials) {
+//                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
+//                            textToCheckList.add(searchModel);
+//                        }
+//                    }
                 } else {
                     textToCheckList.addAll(materials);
                 }
@@ -154,6 +158,8 @@ public class FragmentMaterial extends Fragment {
 
     private void setRecyclerView(ArrayList<Material>materials) {
         RecyclerView recyclerView = getView().findViewById(R.id.material_recycler);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2,GridLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(gridLayoutManager);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         MaterialRecycler recycler= new MaterialRecycler(materials,nameOfCourse,getContext());

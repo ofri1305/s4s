@@ -5,11 +5,13 @@ public class Material {
     private String description;
     private String nameOfFile;
     private String typeOfFile;
+    private String usernameWhoUploaded;
 
     public Material() {
     }
 
-    public Material(String urlToFile, String description,String nameOfFile,String typeOfFile) {
+    public Material(String usernameWhoUploaded,String urlToFile, String description,String nameOfFile,String typeOfFile) {
+        this.usernameWhoUploaded = usernameWhoUploaded;
         this.urlToFile = urlToFile;
         this.description = description;
         this.nameOfFile=nameOfFile;
@@ -46,5 +48,13 @@ public class Material {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUsernameWhoUploaded() {
+        return usernameWhoUploaded;
+    }
+
+    public void setUsernameWhoUploaded(String usernameWhoUploaded) {
+        this.usernameWhoUploaded = usernameWhoUploaded;
     }
 }

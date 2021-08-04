@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -85,7 +86,7 @@ public class MaterialRecycler  extends RecyclerView.Adapter<MaterialRecycler.Vie
             }
         });
         holder.description.setText(""+materials.get(position).getDescription());
-
+        holder.usernameMaterial.setText(""+materials.get(position).getUsernameWhoUploaded());
     }
 
     @Override
@@ -95,14 +96,14 @@ public class MaterialRecycler  extends RecyclerView.Adapter<MaterialRecycler.Vie
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView description;
-        public Button materialButton;
+        public TextView description, usernameMaterial;
+        public ImageButton materialButton;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
+            usernameMaterial = itemView.findViewById(R.id.usernameMaterial);
             description = itemView.findViewById(R.id.description_material);
             materialButton = itemView.findViewById(R.id.material_download);
 

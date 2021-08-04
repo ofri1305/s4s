@@ -16,12 +16,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/addMemeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/costum_button"
-        android:text="add meme"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:background="@drawable/download_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@drawable/ic_add2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

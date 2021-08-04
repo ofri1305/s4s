@@ -126,8 +126,6 @@ public class FragmentChats extends Fragment {
     private void setRecyclerView() {
         RecyclerView recyclerView = getView().findViewById(R.id.chat_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.scrollToPosition(chats.size()-1);
         ChatRecycler recycler = new ChatRecycler(chats, nameOfCourse, getContext());

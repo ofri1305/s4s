@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
     }
     ListView myList;
     EditText theFilter;
+    ArrayAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,13 +84,13 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_second,container,false);
         myList = v.findViewById(R.id.list);
 
-        //ArrayList <String> degrees= Utils.globalUser.getCourseNames();
-        ArrayList <Course> degrees= Utils.globalUser.getCourses();
-        ListDegreesAdapter listDegreesAdapter = new ListDegreesAdapter(getActivity(), R.layout.degree_home, degrees);
-        myList.setAdapter(listDegreesAdapter);
-//        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);
-//        myList.setAdapter(adapter);
-        //add to list
+        ArrayList <String> degrees= Utils.globalUser.getCourseNames();
+        adapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_activated_1,degrees);
+        myList.setAdapter(adapter);
+//        ArrayList <Course> degrees= Utils.globalUser.getCourses();
+//        ListDegreesAdapter listDegreesAdapter = new ListDegreesAdapter(getActivity(), R.layout.degree_home, degrees);
+//        myList.setAdapter(listDegreesAdapter);
+
 
 //
 //        adapter=new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item,degrees){

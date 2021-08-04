@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,7 +70,7 @@ public class FragmentMemes extends Fragment {
 //        memePhoto =getView().findViewById(R.id.memePhoto);
         //whoPosted = getView().findViewById(R.id.memeUserName);
         nameOfCourse=getArguments().getString("nameOfCourse");
-        Button postMeme=getView().findViewById(R.id.addMemeButton);
+        ImageButton postMeme=getView().findViewById(R.id.addMemeButton);
         loadAllMemes();
         loadLiveMemes();
         postMeme.setOnClickListener(v -> uploadMeme());
