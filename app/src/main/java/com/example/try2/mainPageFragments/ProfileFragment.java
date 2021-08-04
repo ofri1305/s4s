@@ -3,33 +3,34 @@ package com.example.try2.mainPageFragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.try2.EditProfile;
+import com.example.try2.objects.Course;
+import com.example.try2.objects.User;
 import com.example.try2.register.Login;
 import com.example.try2.R;
+import com.example.try2.utils.Utils;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -119,28 +120,21 @@ public class ProfileFragment extends Fragment {
 
 
        //create a collection named "users" in firebase and put attributes
-        DocumentReference documentReference = fStore.collection("users").document(userId);
-        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+     fStore.collection("users").document(userId).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
-            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                ArrayList<String>myDegrees=new ArrayList<>();
-                try {
-                    myDegrees= (ArrayList<String>) value.get("courseNames");
-                }catch (Exception c){
-
-                }
-
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                User user=documentSnapshot.toObject(User.class);
+                Utils.globalUser=user;
                 String names="";
-                for (String name:myDegrees) {
-                    names+=name+"\n";
+                for (Course course:user.getCourses()) {
+                    names+=course.getCourseName();
                 }
-                fName.setText(value.getString("firstName"));
-                lName.setText(value.getString("lastName"));
-                eMail.setText(value.getString("email"));
+                fName.setText(documentSnapshot.getString("firstName"));
+                lName.setText(documentSnapshot.getString("lastName"));
+                eMail.setText(documentSnapshot.getString("email"));
                 degree1.setText(names);
                 String titleNameString = fName.getText().toString().concat(" ").concat(lName.getText().toString()).toUpperCase();
                 titleName.setText(titleNameString);
-
             }
         });
 

@@ -91,24 +91,24 @@ public class SignUpActivity extends AppCompatActivity {
             String passwordAgain = password2.getText().toString().trim();
             String fullName = name.getText().toString();
             String lastName1 = lastName.getText().toString().trim();
-            String chosenDegree1 = spinner1.getSelectedItem().toString();
-            String chosenDegree2 = spinner2.getSelectedItem().toString();
-            String chosenDegree3 = spinner3.getSelectedItem().toString();
+            String chosenDegree1 =((Course) spinner1.getSelectedItem()).getCourseName();
+            String chosenDegree2 = ((Course) spinner2.getSelectedItem()).getCourseName();
+            String chosenDegree3 = ((Course) spinner3.getSelectedItem()).getCourseName();
 
             //add the chosen degrees to the list chosen degrees
             if(!(chosenDegree1.equals("")) && !(chosenDegree1.equals(chosenDegree2)) && !(chosenDegree1.equals(chosenDegree3))){
                 Course course = customCourses.stream()
-                        .filter(degree -> chosenDegree1.equals(degree.getCourseName())).findAny().orElse(null);
+                        .filter(degree -> chosenDegree1.equals(degree.getCourseName())).findAny().get();
                 chosenDegrees.add(course);
             }
             if(!(chosenDegree2.equals("")) && !(chosenDegree2.equals(chosenDegree1)) && !(chosenDegree2.equals(chosenDegree3)) ){
                 Course course = customCourses.stream()
-                        .filter(degree -> chosenDegree2.equals(degree.getCourseName())).findAny().orElse(null);
+                        .filter(degree -> chosenDegree2.equals(degree.getCourseName())).findAny().get();
                 chosenDegrees.add(course);
             }
             if(!(chosenDegree3.equals("")) && !(chosenDegree3.equals(chosenDegree1)) && !(chosenDegree3.equals(chosenDegree2))){
                 Course course = customCourses.stream()
-                        .filter(degree -> chosenDegree3.equals(degree.getCourseName())).findAny().orElse(null);
+                        .filter(degree -> chosenDegree3.equals(degree.getCourseName())).findAny().get();
                 chosenDegrees.add(course);
             }
 
