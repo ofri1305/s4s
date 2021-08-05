@@ -1,5 +1,6 @@
 package com.example.try2.recyclers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.bumptech.glide.Glide;
 import com.example.try2.R;
 import com.example.try2.objects.Meme;
 import com.squareup.picasso.Picasso;
@@ -40,12 +42,17 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
         return new MemeRecycler.ViewHolder(view);
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public void onBindViewHolder(@NonNull  MemeRecycler.ViewHolder holder, int position) {
         holder.whoPosted.setText(memes.get(position).getUserName().toUpperCase());
         Uri imgUri=Uri.parse(memes.get(position).getUriToImage());
-        Picasso.get().load(imgUri).placeholder(R.drawable.ic_home_black_24dp).into( holder.image);
 
+        Glide
+                .with(holder.image)
+                .load(imgUri)
+                .placeholder(R.raw.loading)
+                .into(holder.image);
     }
 
     @Override

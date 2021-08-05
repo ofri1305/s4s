@@ -88,6 +88,11 @@ public class FragmentMemes extends Fragment {
                 addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                        if (error != null) {
+
+                            return;
+                        }
+
                         memes = (ArrayList<Meme>) value.toObjects(Meme.class);
                         setRecyclerView();
                     }
