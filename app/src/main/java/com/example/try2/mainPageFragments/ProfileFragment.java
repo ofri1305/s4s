@@ -126,6 +126,7 @@ public class ProfileFragment extends Fragment {
                 User user=documentSnapshot.toObject(User.class);
                 Utils.globalUser=user;
                 String names="";
+                //names+= user.getCourses().stream().
                 for (Course course:user.getCourses()) {
                     names+=course.getCourseName();
                 }
