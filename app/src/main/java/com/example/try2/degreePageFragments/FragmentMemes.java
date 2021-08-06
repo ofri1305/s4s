@@ -149,6 +149,7 @@ public class FragmentMemes extends Fragment {
         RecyclerView recyclerView = getView().findViewById(R.id.memes_recycler);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.scrollToPosition(memes.size()-1);
         MemeRecycler recycler= new MemeRecycler(memes,nameOfCourse,getContext());
         recyclerView.setAdapter(recycler);
     }

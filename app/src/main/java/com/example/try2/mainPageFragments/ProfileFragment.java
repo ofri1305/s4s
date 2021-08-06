@@ -94,21 +94,21 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-            View v=inflater.inflate(R.layout.fragment_first, container, false);
+            View v=inflater.inflate(R.layout.fragment_profile, container, false);
             //text views
-            fName = v.findViewById(R.id.n1);
-            lName = v.findViewById(R.id.n2);
-            eMail = v.findViewById(R.id.m1);
-            degree1 = v.findViewById(R.id.profileDegrees);
-            titleName = v.findViewById(R.id.titleName);
+            fName = v.findViewById(R.id.name_profile);
+            lName = v.findViewById(R.id.last_name_profile);
+            eMail = v.findViewById(R.id.email_profile);
+            degree1 = v.findViewById(R.id.degrees_profile);
+            titleName = v.findViewById(R.id.title_profile);
 
             //buttons
-            resetPsw = v.findViewById(R.id.button3);
-            changeProfile = v.findViewById(R.id.changeProfile);
-            logOutButton = v.findViewById(R.id.logoutButton);
+            resetPsw = v.findViewById(R.id.reset_password_profile);
+            changeProfile = v.findViewById(R.id.edit_button_profile);
+            logOutButton = v.findViewById(R.id.logout_profile);
 
             //image
-            profileImage = v.findViewById(R.id.profileImage);
+            profileImage = v.findViewById(R.id.photo_profile);
 
             //firebase
             fAuth = FirebaseAuth.getInstance();
@@ -135,7 +135,7 @@ public class ProfileFragment extends Fragment {
                 eMail.setText(documentSnapshot.getString("email"));
                 degree1.setText(names);
                 String titleNameString = fName.getText().toString().concat(" ").concat(lName.getText().toString()).toUpperCase();
-                titleName.setText(titleNameString);
+                titleName.setText(titleNameString.toUpperCase());
             }
         });
 

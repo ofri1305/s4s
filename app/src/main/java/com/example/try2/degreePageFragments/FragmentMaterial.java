@@ -115,6 +115,7 @@ public class FragmentMaterial extends Fragment {
                 fStore.collection(nameOfCourse).document("material").collection("materialsObjects").document(date.toString()).set(material);
                 materials.add(material);
                 setRecyclerView(materials);
+                description.setText("");
             });
         }).addOnFailureListener((e) -> {
 
@@ -134,12 +135,12 @@ public class FragmentMaterial extends Fragment {
                 ArrayList<Material> textToCheckList = new ArrayList<>();
                 String textToCheck = s.toString();
                 if (textToCheck.length() != 0) {
-                materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
-//                    for (Material searchModel :materials) {
-//                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
-//                            textToCheckList.add(searchModel);
-//                        }
-//                    }
+                //materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
+                    for (Material searchModel :materials) {
+                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
+                            textToCheckList.add(searchModel);
+                        }
+                    }
                 } else {
                     textToCheckList.addAll(materials);
                 }

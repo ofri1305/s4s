@@ -111,8 +111,7 @@ public class SignUpActivity extends AppCompatActivity {
             String chosenDegree2 = ((Course) spinner2.getSelectedItem()).getCourseName();
             String chosenDegree3 = ((Course) spinner3.getSelectedItem()).getCourseName();
             if(chosenDegree1.equals("")&&chosenDegree2.equals("")&&chosenDegree3.equals("")){
-
-
+                Toast.makeText(SignUpActivity.this, "You must choose least 1 degree", Toast.LENGTH_LONG).show();
                 return;
             }
 

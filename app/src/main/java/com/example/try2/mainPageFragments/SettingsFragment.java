@@ -9,10 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.try2.R;
 import com.example.try2.Report;
 import com.example.try2.TextActivity;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 /**
@@ -52,6 +54,7 @@ public class SettingsFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,30 +77,21 @@ public class SettingsFragment extends Fragment {
 
 
 
-        priAndPol.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(getActivity(), TextActivity.class);
-                in.putExtra("num1", value1);
-                startActivity(in);
-            }
+        priAndPol.setOnClickListener(v1 -> {
+            Intent in=new Intent(getActivity(), TextActivity.class);
+            in.putExtra("num1", value1);
+            startActivity(in);
         });
 
-        aboutUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(getActivity(),TextActivity.class);
-                in.putExtra("num2",value2);
-                startActivity(in);
-            }
+        aboutUs.setOnClickListener(v12 -> {
+            Intent in=new Intent(getActivity(),TextActivity.class);
+            in.putExtra("num2",value2);
+            startActivity(in);
         });
-        report.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(getActivity(), Report.class);
-                startActivity(in);
-            }
+
+        report.setOnClickListener(v13 -> {
+            Intent in=new Intent(getActivity(), Report.class);
+            startActivity(in);
         });
         return v;
     }

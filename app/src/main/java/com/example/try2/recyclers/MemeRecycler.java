@@ -51,8 +51,8 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
         Glide
                 .with(holder.image)
                 .load(imgUri)
-                .placeholder(R.raw.loading)
                 .into(holder.image);
+//        .placeholder(R.raw.loading)
     }
 
     @Override
@@ -72,7 +72,7 @@ public class MemeRecycler  extends RecyclerView.Adapter<MemeRecycler.ViewHolder>
             super(itemView);
 //            whoPosted = itemView.findViewById(R.id.memeUserName);
 //            image = itemView.findViewById(R.id.memePhoto);
-//            lottieAnimationView = itemView.findViewById(R.id.animationView);
+            lottieAnimationView = itemView.findViewById(R.id.animationView);
             whoPosted = itemView.findViewById(R.id.userMeme2);
             image = itemView.findViewById(R.id.postMeme2);
 
