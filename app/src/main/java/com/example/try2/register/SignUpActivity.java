@@ -45,7 +45,6 @@ public class SignUpActivity extends AppCompatActivity {
     Spinner spinner1, spinner2, spinner3;
     boolean isValidValueOnSpinner=false;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
