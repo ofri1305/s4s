@@ -86,7 +86,7 @@ public class EditProfile extends AppCompatActivity {
                             public void onSuccess(Void aVoid) {
                                 Toast.makeText(EditProfile.this, "Profiled Updated", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
-                                //finish();
+                                finish();
                             }
                         });
                         //Toast.makeText(EditProfile.this, "Profile", Toast.LENGTH_SHORT).show();

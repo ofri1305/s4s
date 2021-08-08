@@ -69,20 +69,20 @@ public class SignUpActivity extends AppCompatActivity {
         //firebase stuff
         fAuth= FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
-        fStore.collection("settings").document("terms_of_use").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                String test= task.getResult().get("test").toString();
-                ((TextView) findViewById(R.id.test)).setText(test);
-            }
-        });
+//        fStore.collection("settings").document("terms_of_use").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                String test= task.getResult().get("test").toString();
+//                ((TextView) findViewById(R.id.test)).setText(test);
+//            }
+//        });
         //set the list- WE NEED TO PUT THE LIST IN FIREBASE!!!!
 //        degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
 //                "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
 //                "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
         ArrayList<Course> customCourses = new ArrayList<>();
         //Course.initCourses();
-        customCourses.add(new Course("", R.drawable.ic_computer));
+        customCourses.add(new Course("", R.drawable.ic_about_us));
         customCourses.add(new Course("COMPUTER SCIENCE", R.drawable.ic_computer));
         customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
         customCourses.add(new Course("MEDICINE", R.drawable.ic_medicine));
@@ -105,7 +105,7 @@ public class SignUpActivity extends AppCompatActivity {
             String email = mEmail.getText().toString().trim();
             String password = password1.getText().toString().trim();
             String passwordAgain = password2.getText().toString().trim();
-            String fullName = name.getText().toString();
+            String fullName = name.getText().toString().trim();
             String lastName1 = lastName.getText().toString().trim();
             String chosenDegree1 =((Course) spinner1.getSelectedItem()).getCourseName();
             String chosenDegree2 = ((Course) spinner2.getSelectedItem()).getCourseName();
@@ -173,7 +173,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 userID = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fStore.collection("users").document(userID);
                                 User user = new User(fullName,lastName1,email,chosenDegrees);
-
                                 //creating a profile with the new user's details
                                 documentReference.set(user).addOnSuccessListener(aVoid -> Log.d("", "onSuccess: user profile is created for "+userID));
 

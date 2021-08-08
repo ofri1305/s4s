@@ -101,8 +101,10 @@ public class ProfileFragment extends Fragment {
             eMail = v.findViewById(R.id.email_profile);
             degree1 = v.findViewById(R.id.degrees_profile);
             titleName = v.findViewById(R.id.title_profile);
+            //TextView check = v.findViewById(R.id.checkText);
 
-            //buttons
+
+        //buttons
             resetPsw = v.findViewById(R.id.reset_password_profile);
             changeProfile = v.findViewById(R.id.edit_button_profile);
             logOutButton = v.findViewById(R.id.logout_profile);
@@ -128,8 +130,9 @@ public class ProfileFragment extends Fragment {
                 String names="";
                 //names+= user.getCourses().stream().
                 for (Course course:user.getCourses()) {
-                    names+=course.getCourseName();
+                    names+=course.getCourseName()+"\n";
                 }
+                //check.setText(names);
                 fName.setText(documentSnapshot.getString("firstName"));
                 lName.setText(documentSnapshot.getString("lastName"));
                 eMail.setText(documentSnapshot.getString("email"));
