@@ -85,6 +85,10 @@ public class FragmentMaterial extends Fragment {
     }
 
     public void uploadFile(){
+        if(description.equals("")){
+            description.setError("Must provide a description");
+            return;
+        }
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("*/*");

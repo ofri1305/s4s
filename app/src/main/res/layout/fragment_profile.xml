@@ -11,7 +11,7 @@
         android:layout_width="347dp"
         android:layout_height="218dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="4dp"
         android:orientation="vertical"
@@ -59,7 +59,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,8 @@
                 android:layout_weight="2"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -109,7 +110,8 @@
                 android:layout_weight="2"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -132,7 +134,8 @@
                 android:layout_weight="2"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -159,31 +162,40 @@
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/reset_password_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/costum_button"
-                android:text="reset password" />
-
-            <Button
-                android:id="@+id/edit_button_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
-                android:layout_weight="1"
-                android:background="@drawable/costum_button"
-                android:text="edit profile" />
-        </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/costum_button"
+            android:text="edit profile" />
+
+        <Button
+            android:id="@+id/reset_password_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/costum_button"
+            android:text="new password"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

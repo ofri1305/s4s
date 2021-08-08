@@ -17,21 +17,16 @@ public class Report extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_report);
+        setContentView(R.layout.report);
 
-        to = findViewById(R.id.edit_text_to);
-        subject = findViewById(R.id.edit_text_subject);
-        message = findViewById(R.id.edit_text_message);
+        to = findViewById(R.id.sender_report);
+        subject = findViewById(R.id.subject_report);
+        message = findViewById(R.id.message_report);
 
         to.setText("tamarofriprojects@gmail.com");
 
-        Button buttonSend = findViewById(R.id.button_send);
-        buttonSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMail();
-            }
-        });
+        Button buttonSend = findViewById(R.id.send_report);
+        buttonSend.setOnClickListener(v -> sendMail());
 
     }
 

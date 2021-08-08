@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,11 +26,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -107,7 +101,7 @@ public class ProfileFragment extends Fragment {
 
         //buttons
             resetPsw = v.findViewById(R.id.reset_password_profile);
-            changeProfile = v.findViewById(R.id.edit_button_profile);
+            changeProfile = v.findViewById(R.id.edit_button);
             logOutButton = v.findViewById(R.id.logout_profile);
 
             //image
