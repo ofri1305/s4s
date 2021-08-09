@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+
         firestore= FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
@@ -45,69 +47,31 @@ public class MainActivity extends AppCompatActivity {
         logo.setAnimation(bottomAnim);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
 
 
-                if(currentUser!=null){
-                    firestore.collection("users").document(currentUser.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                        @Override
-                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                            Utils.globalUser=documentSnapshot.toObject(User.class);
-                            Log.i(" Utils.globalUser", "onSuccess: "+ currentUser.getUid());
-                            Intent homeIntent = new Intent(MainActivity.this, Main2Activity.class);
-                            startActivity(homeIntent);
-                            finish();
-                        }
-                    });
+            if(currentUser!=null){
+                firestore.collection("users").document(currentUser.getUid()).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        Utils.globalUser=documentSnapshot.toObject(User.class);
+                        Log.i(" Utils.globalUser", "onSuccess: "+ currentUser.getUid());
+                        Intent homeIntent = new Intent(MainActivity.this, Main2Activity.class);
+                        startActivity(homeIntent);
+                        finish();
+                    }
+                });
 
-                }else{
-                    Intent homeIntent = new Intent(MainActivity.this, Login.class);
-                    startActivity(homeIntent);
-                    finish();
-                }
-
-            }
-        },SPLASH_TIMEOUT);
-
-    }
-}
-
-
-
-/*
-public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIMEOUT = 4000;
-    private ImageView logo;
-    private TextView name;
-    Animation topAnim, bottomAnim;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
-
-        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-
-        name = findViewById(R.id.welcomeView);
-        logo = findViewById(R.id.logoForSplash);
-        name.setAnimation(topAnim);
-        logo.setAnimation(bottomAnim);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+            }else{
+                Intent homeIntent = new Intent(MainActivity.this, Login.class);
                 startActivity(homeIntent);
                 finish();
             }
-        },SPLASH_TIMEOUT);
 
+        },SPLASH_TIMEOUT);
 
     }
 }
- */
+
+

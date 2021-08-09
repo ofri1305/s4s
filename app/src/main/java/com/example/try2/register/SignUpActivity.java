@@ -41,7 +41,6 @@ public class SignUpActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FirebaseFirestore fStore;
     String userID;
-//    List<String> degrees;
     Spinner spinner1, spinner2, spinner3;
     boolean isValidValueOnSpinner=false;
 
@@ -110,7 +109,8 @@ public class SignUpActivity extends AppCompatActivity {
             String chosenDegree1 =((Course) spinner1.getSelectedItem()).getCourseName();
             String chosenDegree2 = ((Course) spinner2.getSelectedItem()).getCourseName();
             String chosenDegree3 = ((Course) spinner3.getSelectedItem()).getCourseName();
-            if(chosenDegree1.equals("")&&chosenDegree2.equals("")&&chosenDegree3.equals("")){
+
+            if(chosenDegree1.equals("") && chosenDegree2.equals("") && chosenDegree3.equals("")){
                 Toast.makeText(SignUpActivity.this, "You must choose least 1 degree", Toast.LENGTH_LONG).show();
                 return;
             }
@@ -154,10 +154,10 @@ public class SignUpActivity extends AppCompatActivity {
                 password1.setError("Password must be at least 6 characters");
                 return;
             }
-            if(chosenDegree1.equals("") && chosenDegree2.equals("") && chosenDegree3.equals("")){
-                Toast.makeText(SignUpActivity.this, "must choose at least 1 degree", Toast.LENGTH_SHORT).show();
-                return;
-            }
+//            if(chosenDegree1.equals("") && chosenDegree2.equals("") && chosenDegree3.equals("")){
+//                Toast.makeText(SignUpActivity.this, "must choose at least 1 degree", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
             progressBar.setVisibility(View.VISIBLE);
 
             //register the user in firebase

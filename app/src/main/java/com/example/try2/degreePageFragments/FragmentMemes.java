@@ -47,8 +47,6 @@ public class FragmentMemes extends Fragment {
     FirebaseStorage storage ;
     FirebaseFirestore fStore;
     private String nameOfCourse;
-//    ImageView memePhoto;
-    //TextView whoPosted;
     FirebaseAuth fAuth;
     private ArrayList<Meme> memes;
     Long date = new Date().getTime();
@@ -62,22 +60,15 @@ public class FragmentMemes extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @androidx.annotation.Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //memes = getView().findViewById(R.id.memes_recycler);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         fStore= FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
-//        memePhoto =getView().findViewById(R.id.memePhoto);
-        //whoPosted = getView().findViewById(R.id.memeUserName);
         nameOfCourse=getArguments().getString("nameOfCourse");
         ImageButton postMeme=getView().findViewById(R.id.addMemeButton);
         loadAllMemes();
         loadLiveMemes();
         postMeme.setOnClickListener(v -> uploadMeme());
-//        StorageReference profileRef = storageReference.child(nameOfCourse+"/meme/"+date);
-//        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-//            Picasso.get().load(uri).into(memePhoto);
-//        });
     }
 
     //load live memes
@@ -85,17 +76,14 @@ public class FragmentMemes extends Fragment {
         fStore.collection(nameOfCourse).
                 document("meme").
                 collection("memesObjects").
-                addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if (error != null) {
+                addSnapshotListener((value, error) -> {
+                    if (error != null) {
 
-                            return;
-                        }
-
-                        memes = (ArrayList<Meme>) value.toObjects(Meme.class);
-                        setRecyclerView();
+                        return;
                     }
+
+                    memes = (ArrayList<Meme>) value.toObjects(Meme.class);
+                    setRecyclerView();
                 });
     }
 
@@ -133,13 +121,12 @@ public class FragmentMemes extends Fragment {
         fileRef.putFile(imageUri).addOnSuccessListener((OnSuccessListener)(taskSnapshot)->{
             fileRef.getDownloadUrl().addOnSuccessListener((OnSuccessListener)(uri)->{
                 Meme meme = new Meme(uri.toString(), Utils.globalUser.getFirstName()+" "+Utils.globalUser.getLastName());
-                //Picasso.get().load((Uri) uri).into(memePhoto);
                 fStore.collection(nameOfCourse).document("meme").collection("memesObjects").document(date.toString()).set(meme);
                 memes.add(meme);
                 setRecyclerView();
             });
         }).addOnFailureListener((e) -> {
-            //Toast.makeText(EditProfile.this, "Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
         });
 
     }

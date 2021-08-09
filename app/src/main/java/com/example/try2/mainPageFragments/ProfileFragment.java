@@ -146,11 +146,7 @@ public class ProfileFragment extends Fragment {
         });
 
 
-//        documentReference.addSnapshotListener(getActivity(), (value, error) -> {
-//            fName.setText(value.getString("fullName"));
-//            lName.setText(value.getString("lastName"));
-//            eMail.setText(value.getString("email"));
-//        });
+
 
         // Inflate the layout for this fragment
 
@@ -184,10 +180,5 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    //logout when logout button is clicked
-   // public void logout(View v){
-   //     FirebaseAuth.getInstance().signOut();
-     //   startActivity(new Intent(getContext(), Login.class));
 
-   // }
 }

@@ -73,30 +73,19 @@ public class EditProfile extends AppCompatActivity {
             }
 
                 String emailF = email.getText().toString();
-                user.updateEmail(emailF).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        DocumentReference docRef = fStore.collection("users").document(user.getUid());
-                        Map<String,Object> edited = new HashMap<>();
-                        edited.put("email", emailF);
-                        edited.put("fullName", fName.getText().toString());
-                        edited.put("lastName", lName.getText().toString());
-                        docRef.update(edited).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(EditProfile.this, "Profiled Updated", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
-                                finish();
-                            }
-                        });
-                        //Toast.makeText(EditProfile.this, "Profile", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(EditProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                user.updateEmail(emailF).addOnSuccessListener(aVoid -> {
+                    DocumentReference docRef = fStore.collection("users").document(user.getUid());
+                    Map<String,Object> edited = new HashMap<>();
+                    edited.put("email", emailF);
+                    edited.put("fullName", fName.getText().toString());
+                    edited.put("lastName", lName.getText().toString());
+                    docRef.update(edited).addOnSuccessListener(aVoid1 -> {
+                        Toast.makeText(EditProfile.this, "Profiled Updated", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
+                        finish();
+                    });
+                    //Toast.makeText(EditProfile.this, "Profile", Toast.LENGTH_SHORT).show();
+                }).addOnFailureListener(e -> Toast.makeText(EditProfile.this, e.getMessage(), Toast.LENGTH_SHORT).show());
 
         });
 

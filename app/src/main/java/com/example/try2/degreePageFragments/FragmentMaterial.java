@@ -39,6 +39,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
@@ -137,16 +139,10 @@ public class FragmentMaterial extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 ArrayList<Material> textToCheckList = new ArrayList<>();
+                textToCheckList.addAll(materials);
                 String textToCheck = s.toString();
                 if (textToCheck.length() != 0) {
-                //materials.stream().filter(m -> textToCheck.equals(m.getDescription()));
-                    for (Material searchModel :materials) {
-                        if (searchModel.getDescription().toLowerCase().contains(textToCheck.toLowerCase())) {
-                            textToCheckList.add(searchModel);
-                        }
-                    }
-                } else {
-                    textToCheckList.addAll(materials);
+                    textToCheckList.removeIf(m-> !(m.getDescription().contains(textToCheck)));
                 }
 
                 // Setting new list to adapter and notifying it
