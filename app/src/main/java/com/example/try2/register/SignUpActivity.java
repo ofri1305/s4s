@@ -78,14 +78,36 @@ public class SignUpActivity extends AppCompatActivity {
         //set the list- WE NEED TO PUT THE LIST IN FIREBASE!!!!
 //        degrees = Arrays.asList("COMPUTER SCIENCE","PSYCHOLOGY","MEDICINE","MATHEMATICS","POLITICS","FINANCE","BUSINESS ADMINISTRATION","ELECTRICAL ENGINEERING",
 //                "MARKETING","LITERATURE","LAW","HISTORY","DESIGN","ART","HEBREW","ENGLISH","CRIMINOLOGY","ARCHEOLOGY",
-//                "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION");
+//                "BIOLOGY","MECHANICAL ENGINEERING","PHYSICS","CHEMISTRY","COMMUNICATION","EDUCATION");
         ArrayList<Course> customCourses = new ArrayList<>();
         //Course.initCourses();
+
         customCourses.add(new Course("", R.drawable.ic_about_us));
+        customCourses.add(new Course("ARCHEOLOGY", R.drawable.ic_archiology));
+        customCourses.add(new Course("ART", R.drawable.ic_art));
+        customCourses.add(new Course("BIOLOGY", R.drawable.ic_biology));
+        customCourses.add(new Course("BUSINESS ADMINISTRATION", R.drawable.ic_bussiness));
+        customCourses.add(new Course("CHEMISTRY", R.drawable.ic_chemistry));
+        customCourses.add(new Course("COMMUNICATION", R.drawable.ic_communication));
         customCourses.add(new Course("COMPUTER SCIENCE", R.drawable.ic_computer));
-        customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
-        customCourses.add(new Course("MEDICINE", R.drawable.ic_medicine));
+        customCourses.add(new Course("DESIGN", R.drawable.ic_design));
+        customCourses.add(new Course("Education", R.drawable.ic_education));
+        customCourses.add(new Course("ELECTRICAL ENGINEERING", R.drawable.ic_electrical_engineering));
+        customCourses.add(new Course("ENGLISH", R.drawable.ic_english));
+        customCourses.add(new Course("FINANCE", R.drawable.ic_economy));
+        customCourses.add(new Course("HEBREW", R.drawable.ic_hebrew));
+        customCourses.add(new Course("HISTORY", R.drawable.ic_history));
+        customCourses.add(new Course("LAW", R.drawable.ic_layers));
+        customCourses.add(new Course("LITERATURE", R.drawable.ic_literature));
+        customCourses.add(new Course("MARKETING", R.drawable.ic_marketing));
         customCourses.add(new Course("MATHEMATICS", R.drawable.ic_math));
+        customCourses.add(new Course("MECHANICAL ENGINEERING", R.drawable.ic_mechanicel_engineering));
+        customCourses.add(new Course("MEDICINE", R.drawable.ic_medicine));
+        customCourses.add(new Course("PHYSICS", R.drawable.ic_physics));
+        customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
+
+       // customCourses.add(new Course("POLITICS", R.drawable.ic_politic));
+       // customCourses.add(new Course("CRIMINOLOGY", R.drawable.ic_criminology));
 
 
         SpinnerAdapter spinnerAdapter = new SpinnerAdapter(this, R.layout.spinner, customCourses);
