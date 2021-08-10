@@ -106,6 +106,7 @@ public class SignUpActivity extends AppCompatActivity {
         customCourses.add(new Course("PHYSICS", R.drawable.ic_physics));
         customCourses.add(new Course("PSYCHOLOGY", R.drawable.ic_psychology));
 
+
        // customCourses.add(new Course("POLITICS", R.drawable.ic_politic));
        // customCourses.add(new Course("CRIMINOLOGY", R.drawable.ic_criminology));
 
