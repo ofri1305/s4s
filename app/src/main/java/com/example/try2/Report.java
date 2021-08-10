@@ -31,7 +31,7 @@ public class Report extends AppCompatActivity {
     }
 
     private void sendMail(){
-        String recipients = to.getText().toString();
+        String recipients = "tamarofriprojects@gmail.com";
       //  String[] recipients = recipientList.split(",");
 
         String theSubject = subject.getText().toString();
