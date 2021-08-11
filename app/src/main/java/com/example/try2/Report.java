@@ -18,6 +18,7 @@ public class Report extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report);
+        getSupportActionBar().hide();
 
         to = findViewById(R.id.sender_report);
         subject = findViewById(R.id.subject_report);

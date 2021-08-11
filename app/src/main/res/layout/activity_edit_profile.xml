@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".EditProfile">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImageChange"
         android:layout_width="118dp"
         android:layout_height="84dp"

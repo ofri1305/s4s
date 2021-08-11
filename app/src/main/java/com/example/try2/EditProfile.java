@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.try2.mainPageFragments.ProfileFragment;
+import com.example.try2.mains.Main2Activity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +41,7 @@ public class EditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+        getSupportActionBar().hide();
 
         profile = findViewById(R.id.profileImageChange);
         fName = findViewById(R.id.fName);
@@ -81,7 +83,7 @@ public class EditProfile extends AppCompatActivity {
                     edited.put("lastName", lName.getText().toString());
                     docRef.update(edited).addOnSuccessListener(aVoid1 -> {
                         Toast.makeText(EditProfile.this, "Profiled Updated", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), ProfileFragment.class));
+                        startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                         finish();
                     });
                     //Toast.makeText(EditProfile.this, "Profile", Toast.LENGTH_SHORT).show();
@@ -91,9 +93,7 @@ public class EditProfile extends AppCompatActivity {
 
         //create storage reference and use picasso library
         StorageReference profileRef = storageReference.child("users/"+fAuth.getCurrentUser().getUid()+"/profile.jpg");
-        profileRef.getDownloadUrl().addOnSuccessListener(uri -> {
-            Picasso.get().load(uri).into(profile);
-        });
+        profileRef.getDownloadUrl().addOnSuccessListener(uri -> Picasso.get().load(uri).into(profile));
 
 
         //set new profile picture
