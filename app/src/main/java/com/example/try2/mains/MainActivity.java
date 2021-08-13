@@ -38,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
         firestore= FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
-        name= findViewById(R.id.s4sName);
-        logo= findViewById(R.id.imageLogo);
+        //name= findViewById(R.id.s4sName);
+        logo= findViewById(R.id.logo_option_2);
         topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
-        name.setAnimation(topAnim);
-        logo.setAnimation(bottomAnim);
+
+        //name.setAnimation(topAnim);
+        logo.setAnimation(topAnim);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
         new Handler().postDelayed(() -> {
