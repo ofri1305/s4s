@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,10 +26,15 @@ public class TextActivity extends AppCompatActivity {
         String type1 = getIntent().getStringExtra("num1");
         String type2 = getIntent().getStringExtra("num2");
         fStore = FirebaseFirestore.getInstance();
+        content.setMovementMethod(new ScrollingMovementMethod());
+        getSupportActionBar().hide();
+
+
 
 
         if(type1 !=null){
             fStore.collection("settings").document("terms_of_use").get().addOnSuccessListener(documentSnapshot -> {
+
                 content.setText(documentSnapshot.getString("policy"));
             }).addOnFailureListener(e -> {
                 return;
@@ -42,6 +48,7 @@ public class TextActivity extends AppCompatActivity {
                 return;
             });
         }
+
     }
 
 }
