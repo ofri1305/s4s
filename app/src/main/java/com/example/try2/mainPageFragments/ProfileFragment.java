@@ -27,6 +27,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -122,16 +124,20 @@ public class ProfileFragment extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User user=documentSnapshot.toObject(User.class);
                 Utils.globalUser=user;
-                String names="";
+                ArrayList<String> names=new ArrayList<>();
                 //names+= user.getCourses().stream().
                 for (Course course:user.getCourses()) {
-                    names+=course.getCourseName()+"\n";
+                    names.add(course.getCourseName());
                 }
                 //check.setText(names);
                 fName.setText(documentSnapshot.getString("firstName"));
                 lName.setText(documentSnapshot.getString("lastName"));
                 eMail.setText(documentSnapshot.getString("email"));
-                degree1.setText(names);
+                for (int i = 0; i < names.size(); i++) {
+                    degree1.append(names.get(i));
+                    degree1.append("\n");
+                }
+                //degree1.setText(names);
                 String titleNameString = fName.getText().toString().concat(" ").concat(lName.getText().toString()).toUpperCase();
                 titleName.setText(titleNameString.toUpperCase());
             }
